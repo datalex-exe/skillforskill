@@ -1,0 +1,200 @@
+/* My Sessions Specific Styles */
+
+.sessions-tab-header {
+    padding: 0 1.5rem 1.2rem 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+}
+
+.sessions-tab-header .session-tab-btn {
+    background: none;
+    border: none;
+    padding: 0.8rem 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.3s;
+}
+
+.sessions-tab-header .session-tab-btn:hover {
+    color: var(--accent-purple);
+}
+
+.sessions-tab-header .session-tab-btn.active {
+    color: var(--accent-purple);
+}
+
+.sessions-tab-header .session-tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: var(--accent-purple);
+    border-radius: 2px;
+}
+
+.badge-count {
+    background: #ECE9FC;
+    color: #5B21B6;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 10px;
+}
+
+.session-tab-btn.active .badge-count {
+    background: var(--accent-purple);
+    color: #fff;
+}
+
+/* Feed Grid */
+.sessions-feed-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1.5rem 2rem 1.5rem;
+}
+
+/* Session Card */
+.my-session-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.my-session-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Header Area */
+.mysession-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.mysession-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ECE9FC;
+}
+
+.mysession-title-block h3 {
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.15rem;
+}
+
+.mysession-role-txt {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.mysession-role-txt span {
+    font-weight: 700;
+    color: var(--accent-purple);
+}
+
+/* Schedule Info */
+.mysession-schedule-box {
+    background: #FAF8FC;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xs);
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1.2rem;
+}
+
+.mysession-schedule-box div {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.schedule-icon {
+    font-size: 1rem;
+}
+
+/* Footer & Buttons */
+.mysession-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.btn-start-session {
+    background: linear-gradient(135deg, #7C3AED, #A855F7);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius-xs);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-start-session:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(124, 58, 237, 0.3);
+}
+
+/* Status Labels */
+.session-status {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.session-status.upcoming {
+    background: #EFF6FF;
+    color: #1D4ED8;
+}
+
+.session-status.completed {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.session-status.cancelled {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+/* Responsive grid */
+@media (max-width: 768px) {
+    .sessions-feed-container {
+        grid-template-columns: 1fr;
+    }
+}

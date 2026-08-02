@@ -1,0 +1,215 @@
+/* Settings specific styles */
+
+.settings-grid {
+    padding: 0 1.5rem 2rem 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+}
+
+.tab-header {
+    display: flex;
+    gap: 1.2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 0.8rem 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.tab-btn:hover {
+    color: var(--accent-purple);
+}
+
+.tab-btn.active {
+    color: var(--accent-purple);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: var(--accent-purple);
+    border-radius: 2px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: settingsTabIn 0.3s ease;
+}
+
+@keyframes settingsTabIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sections */
+.settings-section {
+    background: #FAF8FC;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.2rem;
+}
+
+.section-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.section-desc {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+}
+
+/* iOS Toggle switches */
+.toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 0;
+}
+
+.toggle-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.toggle-label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.15rem;
+}
+
+.toggle-desc {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+/* Toggle Switch slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border);
+    transition: .3s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+input:checked + .slider {
+    background: linear-gradient(135deg, #7C3AED, #A855F7);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #7C3AED;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+/* Settings Actions */
+.settings-actions {
+    margin-top: 1.8rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-logout {
+    background: none;
+    border: 1px solid #EF4444;
+    color: #EF4444;
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--radius-xs);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-logout:hover {
+    background: #FEE2E2;
+}
+
+.btn-save-settings {
+    background: linear-gradient(135deg, #7C3AED, #A855F7);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.8rem;
+    border-radius: var(--radius-xs);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-save-settings:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(124, 58, 237, 0.3);
+}
+
+/* Form Group overrides */
+.form-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}

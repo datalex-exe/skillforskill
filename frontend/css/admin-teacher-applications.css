@@ -1,0 +1,385 @@
+/* Admin Teacher Applications Styles */
+.admin-controls-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    margin: 0 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow);
+}
+
+.filter-tabs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+    color: var(--text);
+    border-color: var(--accent-purple);
+}
+
+.filter-btn.active {
+    background: var(--accent-purple);
+    color: #ffffff;
+    border-color: var(--accent-purple);
+}
+
+.badge-count {
+    background: rgba(255, 255, 255, 0.25);
+    color: inherit;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+}
+
+.filter-btn:not(.active) .badge-count {
+    background: var(--border);
+    color: var(--text);
+}
+
+.filter-btn:not(.active) .badge-count.yellow { background: #FEF3C7; color: #D97706; }
+.filter-btn:not(.active) .badge-count.green { background: #D1FAE5; color: #059669; }
+.filter-btn:not(.active) .badge-count.red { background: #FEE2E2; color: #DC2626; }
+
+.search-input-wrap {
+    position: relative;
+    width: 300px;
+}
+
+.search-input-wrap .search-icon {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.search-input-wrap input {
+    width: 100%;
+    padding: 0.55rem 1rem 0.55rem 2.3rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xs);
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-input-wrap input:focus {
+    border-color: var(--accent-purple);
+}
+
+/* Applications Container */
+.applications-container {
+    padding: 0 1.5rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Application Card */
+.app-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: fadeIn 0.35s ease;
+}
+
+.app-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.applicant-info-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.applicant-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-purple);
+}
+
+.applicant-avatar-fallback {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.applicant-name-wrap h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0 0 0.15rem 0;
+}
+
+.applicant-meta {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.role-badge {
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--accent-purple);
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    text-transform: capitalize;
+}
+
+.app-status-badge {
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.app-status-badge.pending {
+    background: rgba(245, 158, 11, 0.12);
+    color: #D97706;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.app-status-badge.approved {
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.app-status-badge.rejected {
+    background: rgba(239, 68, 68, 0.12);
+    color: #DC2626;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Application Details Grid */
+.app-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    background: #FAF8FC;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.2rem;
+}
+
+.detail-item h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    margin: 0 0 0.35rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.detail-item p {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.skill-pill {
+    background: #ECE9FC;
+    color: #5B21B6;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+}
+
+.fee-badge {
+    color: #7C3AED;
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+
+/* Action Buttons Footer */
+.app-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+}
+
+.app-date {
+    font-size: 0.78rem;
+    color: var(--text-light);
+}
+
+.action-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn-approve {
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: #ffffff;
+    border: none;
+    padding: 0.6rem 1.3rem;
+    border-radius: var(--radius-xs);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+.btn-approve:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(16, 185, 129, 0.3);
+}
+
+.btn-reject {
+    background: transparent;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #DC2626;
+    padding: 0.6rem 1.3rem;
+    border-radius: var(--radius-xs);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-reject:hover {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: #DC2626;
+}
+
+.no-apps-notice {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.no-apps-notice span {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+/* Access Denied View */
+.access-denied-container {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.access-denied-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    max-width: 480px;
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.4s ease;
+}
+
+.access-denied-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.access-denied-box h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #DC2626;
+    margin-bottom: 0.8rem;
+}
+
+.access-denied-box p {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-bottom: 1.8rem;
+}
+
+.btn-return-dashboard {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius-xs);
+    font-size: 0.95rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-return-dashboard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+}
