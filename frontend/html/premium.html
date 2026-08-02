@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - Upgrade to Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/session-room.css">
+    <link rel="stylesheet" href="../css/premium.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">👥</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Skill for Skill, Grow Together</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+            <a href="browse-people.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Browse People</span>
+            </a>
+            <a href="session-request.html" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+            </a>
+            <a href="my-sessions.html" class="nav-item">
+                <span class="nav-icon">📖</span>
+                <span>My Sessions</span>
+            </a>
+            <a href="credits.html" class="nav-item">
+                <span class="nav-icon">💰</span>
+                <span>Time Wallet</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <span class="nav-icon">✉️</span>
+                <span>Messages</span>
+            </a>
+            <a href="reviews.html" class="nav-item">
+                <span class="nav-icon">⭐</span>
+                <span>Reviews</span>
+            </a>
+            <a href="premium.html" class="nav-item active">
+                <span class="nav-icon">💎</span>
+                <span>Upgrade Premium</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Unlimited Learning Access</h2>
+                <h1>BarterLearn Premium 💎</h1>
+                <p>Remove video call duration limits and unlock full platform capabilities.</p>
+            </div>
+            <div class="top-actions">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search features...">
+                </div>
+                <button class="icon-btn">🔔</button>
+                <button class="icon-btn">💬</button>
+                <div class="user-profile">
+                    <div class="user-avatar" id="headerUserAvatar">VT</div>
+                    <div class="user-info">
+                        <div class="name" id="headerUserName">Vanshika</div>
+                        <div class="role" id="headerUserRole">Learner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Premium Main Grid Container -->
+        <div class="premium-container">
+            <!-- Header Banner -->
+            <div class="premium-hero-banner">
+                <div class="hero-badge">✨ UNLOCK UNLIMITED ACCESS</div>
+                <h2>Supercharge Your Skill Exchange Experience</h2>
+                <p>Free users are limited to 3 hours of video calling per day. Upgrade to Premium for continuous, unlimited session calls without interruptions!</p>
+            </div>
+
+            <!-- 2-Column Content Layout -->
+            <div class="premium-grid">
+                <!-- Left Column: Current Plan & Benefits -->
+                <div class="premium-left-col">
+                    <!-- Current Plan Status Card -->
+                    <div class="premium-card plan-status-card">
+                        <div class="card-title-row">
+                            <h3>📊 Current Plan Status</h3>
+                            <span class="plan-badge-pill" id="currentPlanBadge">FREE PLAN</span>
+                        </div>
+                        <div class="plan-metric-group">
+                            <div class="metric-item">
+                                <span class="lbl">Daily Video Call Limit</span>
+                                <span class="val" id="planLimitText">3 Hours / Day</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="lbl">Today's Call Time Used</span>
+                                <span class="valHighlight" id="planUsedTimeText">0m / 3h 00m</span>
+                            </div>
+                        </div>
+                        <div class="limit-meter-box">
+                            <div class="meter-labels">
+                                <span>Daily Allowance Progress</span>
+                                <span id="meterPercentText">0% Used</span>
+                            </div>
+                            <div class="meter-bar-bg">
+                                <div class="meter-bar-fill" id="meterBarFill" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium Benefits Card -->
+                    <div class="premium-card benefits-card">
+                        <h3>💎 Premium Member Benefits</h3>
+                        <ul class="benefits-list">
+                            <li>
+                                <div class="benefit-icon">🎥</div>
+                                <div class="benefit-text">
+                                    <strong>Unlimited Daily Video Call Duration</strong>
+                                    <p>No 3-hour cap. Host and participate in as many barter sessions as you want every day.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="benefit-icon">⚡</div>
+                                <div class="benefit-text">
+                                    <strong>Priority Room Connection & Support</strong>
+                                    <p>Get instant HD server allocation and 24/7 dedicated customer assistance.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="benefit-icon">⭐</div>
+                                <div class="benefit-text">
+                                    <strong>Verified Instructor Badge & Profile Boost</strong>
+                                    <p>Stand out in Browse People search results with a shiny Pro badge.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="benefit-icon">🚀</div>
+                                <div class="benefit-text">
+                                    <strong>Access to All Future Premium Features</strong>
+                                    <p>Receive automatic access to upcoming AI session summaries, recorded workshops, and group classrooms.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column: Real UPI Payment & Pending Verification Action -->
+                <div class="premium-right-col">
+                    <div class="premium-card payment-card">
+                        <div class="payment-header">
+                            <h3 style="font-size:1.15rem; font-weight:800; color:#ffffff;">Scan the QR Code to Upgrade to Premium</h3>
+                        </div>
+
+                        <!-- Real Official QR Code Container -->
+                        <!-- 📌 OFFICIAL UPI QR CODE IMAGE
+                             To update/replace with your custom QR code image:
+                             Save your image to: frontend/images/payment-qr.png (or payment-qr.svg)
+                             It will automatically load both locally and on Render production deployment! -->
+                        <div class="qr-code-box">
+                            <div class="qr-frame">
+                                <img src="../images/payment-qr.svg" id="upiQrCodeImg" alt="BarterLearn Premium Official Payment QR Code" style="width: 220px; height: auto; display: block; border-radius: 12px;" onerror="if(this.src.includes('.svg')){this.src='../images/payment-qr.png';}else if(this.src.includes('.png')){this.src='/images/payment-qr.svg';}">
+                            </div>
+                            <div class="official-qr-note">
+                                🔒 This is the official payment QR code for BarterLearn Premium.
+                            </div>
+                        </div>
+
+                        <!-- UPI ID Row -->
+                        <div class="upi-id-box">
+                            <span class="upi-lbl">UPI ID:</span>
+                            <strong class="upi-val" id="upiIdText">barterlearn@upi</strong>
+                            <button class="btn-copy-upi" onclick="copyUpiId()">📋 Copy</button>
+                        </div>
+
+                        <!-- Transaction Reference / UTR Input -->
+                        <div class="utr-input-group" style="margin-bottom: 1.2rem; text-align: left;">
+                            <label for="utrInput" style="display:block; font-size:0.8rem; color:#94a3b8; margin-bottom:0.4rem; font-weight:600;">Transaction Ref / UTR Number (Optional):</label>
+                            <input type="text" id="utrInput" placeholder="e.g. 2089XXXXXXXX or 12-digit UTR" style="width:100%; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.15); color:#fff; padding:0.75rem 1rem; border-radius:10px; font-size:0.9rem; font-family:'Inter',sans-serif;">
+                        </div>
+
+                        <!-- Pending Verification Status Alert Box (hidden by default) -->
+                        <div id="pendingStatusBanner" class="pending-status-banner" style="display:none; background:rgba(245, 158, 11, 0.15); border:1px solid rgba(245, 158, 11, 0.4); border-radius:12px; padding:1rem; margin-bottom:1.2rem; text-align:left;">
+                            <div style="display:flex; align-items:center; gap:0.5rem; color:#fbbf24; font-weight:800; font-size:0.95rem; margin-bottom:0.3rem;">
+                                <span>⏳</span> <span>Status: Pending Verification</span>
+                            </div>
+                            <p style="font-size:0.83rem; color:#cbd5e1; margin:0; line-height:1.5;">
+                                Your payment request has been submitted successfully! The admin is verifying your payment. Once verified, your account will automatically upgrade to Premium.
+                            </p>
+                        </div>
+
+                        <!-- Payment Actions -->
+                        <div class="payment-actions">
+                            <button class="btn-pay-upgrade" id="btnPayUpgrade" onclick="submitPaymentForVerification()">
+                                ✅ I Have Paid
+                            </button>
+                            <button class="btn-back-dashboard" onclick="window.location.href='dashboard.html'">
+                                ↩️ Back to Dashboard
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subscription Pricing Plans Section -->
+            <div class="pricing-plans-section">
+                <div class="pricing-section-header">
+                    <h2>Select a Subscription Plan</h2>
+                    <p>Choose the flexible plan that fits your skill learning and teaching goals.</p>
+                </div>
+
+                <div class="pricing-plans-grid">
+                    <!-- Plan 1: Weekly Plan -->
+                    <div class="pricing-card weekly-plan">
+                        <div class="pricing-card-header">
+                            <h3>Weekly Plan</h3>
+                            <div class="pricing-price">
+                                <span class="currency">₹</span><span class="amount">99</span><span class="period">/ week</span>
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><span class="check">✓</span> Up to 3 hours of video calls per day</li>
+                            <li><span class="check">✓</span> Unlimited skill sessions</li>
+                            <li><span class="check">✓</span> Priority support</li>
+                        </ul>
+                        <button class="btn-plan-select weekly-btn" onclick="selectPricingPlan('Weekly Plan', 99)">
+                            Upgrade Now
+                        </button>
+                    </div>
+
+                    <!-- Plan 2: Monthly Plan (Most Popular) -->
+                    <div class="pricing-card monthly-plan popular">
+                        <div class="pricing-badge popular-badge">🔥 MOST POPULAR</div>
+                        <div class="pricing-card-header">
+                            <h3>Monthly Plan</h3>
+                            <div class="pricing-price">
+                                <span class="currency">₹</span><span class="amount">299</span><span class="period">/ month</span>
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><span class="check">✓</span> All Weekly Plan features</li>
+                            <li><span class="check">✓</span> Unlimited daily video calls</li>
+                            <li><span class="check">✓</span> Premium badge</li>
+                            <li><span class="check">✓</span> Priority matching</li>
+                        </ul>
+                        <button class="btn-plan-select popular-btn" onclick="selectPricingPlan('Monthly Plan', 299)">
+                            Upgrade Now
+                        </button>
+                    </div>
+
+                    <!-- Plan 3: Yearly Plan (Best Value) -->
+                    <div class="pricing-card yearly-plan best-value">
+                        <div class="pricing-badge best-value-badge">👑 BEST VALUE</div>
+                        <div class="pricing-card-header">
+                            <h3>Yearly Plan</h3>
+                            <div class="pricing-price">
+                                <span class="currency">₹</span><span class="amount">999</span><span class="period">/ year</span>
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><span class="check">✓</span> All Premium features</li>
+                            <li><span class="check">✓</span> Unlimited video calls</li>
+                            <li><span class="check">✓</span> Early access to new features</li>
+                            <li><span class="check">✓</span> Premium badge</li>
+                            <li><span class="check">✓</span> Priority support</li>
+                        </ul>
+                        <button class="btn-plan-select best-value-btn" onclick="selectPricingPlan('Yearly Plan', 999)">
+                            Upgrade Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/premium.js?v=1.0"></script>
+</body>
+</html>

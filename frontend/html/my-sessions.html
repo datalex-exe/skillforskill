@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - My Sessions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/my-sessions.css">
+    <link rel="stylesheet" href="../css/session-room.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">👥</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Skill for Skill, Grow Together</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+            <a href="browse-people.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Browse People</span>
+            </a>
+            <a href="session-request.html" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+            </a>
+            <a href="my-sessions.html" class="nav-item active">
+                <span class="nav-icon">📖</span>
+                <span>My Sessions</span>
+            </a>
+            <a href="credits.html" class="nav-item">
+                <span class="nav-icon">💰</span>
+                <span>Time Wallet</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <span class="nav-icon">✉️</span>
+                <span>Messages</span>
+            </a>
+            <a href="reviews.html" class="nav-item">
+                <span class="nav-icon">⭐</span>
+                <span>Reviews</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Virtual Learning</h2>
+                <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+                    <h1 style="margin:0;">My Sessions 📖</h1>
+                    <div class="daily-usage-pill" id="dailyUsagePill" title="Daily Video Call Limit (Max 3 hours/day)" style="cursor:pointer;" onclick="openPremiumModal()">
+                        <span>⏱️ Daily Call Usage:</span>
+                        <strong id="dailyUsageTimeText">Loading...</strong>
+                    </div>
+                </div>
+                <p style="margin-top:0.4rem;">Launch live video sessions, review scheduled classes, and check histories.</p>
+            </div>
+            <div class="top-actions">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search sessions...">
+                </div>
+                <button class="icon-btn">
+                    🔔
+                </button>
+                <button class="icon-btn">
+                    💬
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar" id="headerUserAvatar">VT</div>
+                    <div class="user-info">
+                        <div class="name" id="headerUserName">Vanshika</div>
+                        <div class="role" id="headerUserRole">Learner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Premium Upgrade Modal (hidden by default) -->
+        <div id="premiumModal" class="premium-modal-backdrop" style="display: none;">
+            <div class="premium-modal-card">
+                <button class="premium-modal-close" onclick="closePremiumModal()">✕</button>
+                <div class="premium-badge-tag">💎 PRO UNLOCK</div>
+                <h2 style="font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:800; margin-bottom:0.5rem;">Upgrade to BarterLearn Premium</h2>
+                <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:1rem;">Remove daily video call limits and unlock exclusive skill-sharing privileges.</p>
+                <ul class="premium-feature-list">
+                    <li><span class="check">✓</span> <strong>Unlimited Daily Video Call Duration</strong></li>
+                    <li><span class="check">✓</span> Priority Session Room Allocation & HD Video</li>
+                    <li><span class="check">✓</span> Verified Instructor Badge & Search Boost</li>
+                    <li><span class="check">✓</span> Unlimited Chat & File Sharing</li>
+                </ul>
+                <div style="background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.3); border-radius:12px; padding:1rem; text-align:center; margin-bottom:1.5rem;">
+                    <span style="font-size:1.5rem; font-weight:800; color:#fff;">$0.00 <span style="font-size:0.85rem; color:#a5b4fc; font-weight:400;">/ Demo Upgrade</span></span>
+                </div>
+                <button class="btn-upgrade-premium" onclick="confirmPremiumUpgrade()">
+                    <span>🚀 Confirm Instant Upgrade</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Session List Tabs -->
+        <div class="sessions-tab-header">
+            <button class="session-tab-btn active" onclick="selectSessionsTab(event, 'upcoming')">Upcoming Sessions <span class="badge-count" id="upcomingCount">2</span></button>
+            <button class="session-tab-btn" onclick="selectSessionsTab(event, 'completed')">Completed Sessions <span class="badge-count" id="completedCount">0</span></button>
+            <button class="session-tab-btn" onclick="selectSessionsTab(event, 'cancelled')">Cancelled Sessions <span class="badge-count" id="cancelledCount">0</span></button>
+        </div>
+
+        <!-- Sessions Display Feed Grid -->
+        <div class="sessions-feed-container" id="sessionsFeedContainer">
+            <!-- Loaded dynamically via JS -->
+        </div>
+    </main>
+
+    <!-- Student Payment Modal (Step 3) -->
+    <div id="studentPaymentModal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center;">
+        <div class="modal-container" style="background:var(--surface); padding:1.8rem; border-radius:16px; width:90%; max-width:520px; box-shadow:0 20px 25px -5px rgba(0,0,0,0.3); max-height:90vh; overflow-y:auto;">
+            <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem; border-bottom:1px solid var(--border); padding-bottom:0.8rem;">
+                <h3 style="margin:0; font-size:1.2rem; color:var(--text);">💳 Complete Session Payment</h3>
+                <button type="button" class="modal-close" onclick="closeStudentPaymentModal()" style="background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--text-light);">✕</button>
+            </div>
+            
+            <div id="paymentSummaryBox" style="background:var(--background); border:1px solid var(--border); border-radius:12px; padding:1rem; margin-bottom:1.2rem;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.9rem;">
+                    <span style="color:var(--text-light);">Teacher:</span>
+                    <strong id="payTeacherName" style="color:var(--text);">-</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.9rem;">
+                    <span style="color:var(--text-light);">Date & Time:</span>
+                    <strong id="paySessionDateTime" style="color:var(--text);">-</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.9rem;">
+                    <span style="color:var(--text-light);">Duration:</span>
+                    <strong id="payDuration" style="color:var(--text);">1.0 Hour</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.9rem;">
+                    <span style="color:var(--text-light);">Session Fee:</span>
+                    <span id="paySessionFee" style="font-weight:600;">0 Credits</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.9rem;">
+                    <span style="color:var(--text-light);">Platform Fee:</span>
+                    <span id="payPlatformFee" style="font-weight:600; color:#059669;">0 Credits (Free)</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; border-top:1px dashed var(--border); padding-top:0.6rem; margin-top:0.6rem; font-size:1rem; font-weight:800;">
+                    <span style="color:var(--text);">Total Amount:</span>
+                    <span id="payTotalAmount" style="color:#6D28D9;">0 Credits</span>
+                </div>
+            </div>
+
+            <!-- QR Code Section -->
+            <div style="text-align:center; background:var(--background); padding:1rem; border-radius:12px; border:1px solid var(--border); margin-bottom:1.2rem;">
+                <p style="font-weight:700; font-size:0.85rem; margin-bottom:0.6rem; color:var(--text);">Scan QR Code or Use UPI to Pay</p>
+                <div style="display:inline-block; padding:0.5rem; background:#fff; border-radius:12px; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <img src="../images/payment-qr.svg" id="payQrCodeImg" alt="Payment QR Code" style="width:180px; height:auto; display:block; border-radius:8px;" onerror="if(this.src.includes('.svg')){this.src='../images/payment-qr.png';}">
+                </div>
+                <p style="font-size:0.75rem; color:var(--text-light); margin-top:0.6rem;">UPI ID: <strong>barterlearn@upi</strong></p>
+            </div>
+
+            <form id="studentPaymentForm" onsubmit="submitStudentPaymentProof(event)">
+                <input type="hidden" id="payModalReqId">
+
+                <div class="modal-form-group" style="margin-bottom:1rem;">
+                    <label for="payTransactionRef" style="display:block; margin-bottom:0.4rem; font-weight:600; font-size:0.85rem;">📝 Transaction Ref / UTR / Reference ID</label>
+                    <input type="text" id="payTransactionRef" class="modal-input" placeholder="e.g. UTR1234567890" style="width:100%; padding:0.65rem; border-radius:8px; border:1px solid var(--border); background:var(--background); color:var(--text);" required>
+                </div>
+
+                <div class="modal-form-group" style="margin-bottom:1.2rem;">
+                    <label for="payProofFile" style="display:block; margin-bottom:0.4rem; font-weight:600; font-size:0.85rem;">📤 Upload Payment Proof Screenshot</label>
+                    <input type="file" id="payProofFile" accept="image/*" class="modal-input" style="width:100%; padding:0.5rem; border-radius:8px; border:1px solid var(--border); background:var(--background); color:var(--text);" onchange="handleProofFileSelect(event)">
+                    <input type="hidden" id="payProofBase64">
+                    <div id="proofPreview" style="margin-top:0.5rem; text-align:center; display:none;">
+                        <img id="proofPreviewImg" src="" alt="Proof Preview" style="max-width:100%; max-height:120px; border-radius:8px; border:1px solid var(--border);">
+                    </div>
+                </div>
+
+                <div class="modal-actions" style="display:flex; gap:0.8rem; justify-content:flex-end;">
+                    <button type="button" class="btn-modal-cancel" onclick="closeStudentPaymentModal()" style="padding:0.65rem 1.2rem; border-radius:8px; border:1px solid var(--border); background:none; cursor:pointer; color:var(--text);">Cancel</button>
+                    <button type="submit" class="btn-modal-confirm" id="btnSubmitPayment" style="padding:0.65rem 1.4rem; border-radius:8px; border:none; background:#6D28D9; color:#fff; font-weight:700; cursor:pointer;">
+                        <span>Submit Payment Proof 📤</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/my-sessions.js?v=1.2"></script>
+</body>
+</html>

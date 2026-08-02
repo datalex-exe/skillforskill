@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - Messages</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/messages.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">👥</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Skill for Skill, Grow Together</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+                        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+            <a href="browse-people.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Browse People</span>
+            </a>
+            <a href="session-request.html" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+            </a>
+            <a href="my-sessions.html" class="nav-item">
+                <span class="nav-icon">📖</span>
+                <span>My Sessions</span>
+            </a>
+            <a href="credits.html" class="nav-item">
+                <span class="nav-icon">💰</span>
+                <span>Time Wallet</span>
+            </a>
+            <a href="messages.html" class="nav-item active">
+                <span class="nav-icon">✉️</span>
+                <span>Messages</span>
+            </a>
+            <a href="reviews.html" class="nav-item">
+                <span class="nav-icon">⭐</span>
+                <span>Reviews</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main chat-main-container">
+        <!-- Messages Pane Wrapper -->
+        <div class="chat-wrapper">
+            <!-- Sidebar: User Chat List -->
+            <div class="inbox-sidebar">
+                <div class="inbox-search">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search conversations...">
+                </div>
+                <div class="inbox-users-list" id="usersList">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- Active Chat Thread View -->
+            <div class="chat-thread-container">
+                <!-- Chat Window Header -->
+                <div class="chat-header">
+                    <div class="chat-header-user">
+                        <img src="" id="chatHeaderAvatar" class="chat-user-avatar" style="display:none;">
+                        <div class="chat-header-details">
+                            <h3 id="chatHeaderName">Select a Conversation</h3>
+                            <span class="user-status-text" id="chatHeaderStatus"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Messages Feed area -->
+                <div class="chat-messages-feed" id="chatMessagesFeed">
+                    <div class="chat-empty-state">
+                        <span class="empty-icon">✉️</span>
+                        <h3>No active conversation selected</h3>
+                        <p>Select a contact from the inbox list on the left to begin trading skills.</p>
+                    </div>
+                </div>
+
+                <!-- Chat Input Row -->
+                <form class="chat-input-row" id="chatForm" onsubmit="sendMessage(event)" style="display:none;">
+                    <input type="text" id="chatInput" placeholder="Write a message..." autocomplete="off">
+                    <button type="submit" class="btn-send-msg">
+                        <span>Send</span>
+                        <span>✈️</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/messages.js"></script>
+</body>
+</html>

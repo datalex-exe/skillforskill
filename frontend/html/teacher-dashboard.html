@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - Teacher Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/teacher-dashboard.css">
+</head>
+<body>
+    <!-- SVG Gradients Definition -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="gradientTeacher" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#8B5CF6"/>
+                <stop offset="100%" style="stop-color:#6D28D9"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">🎓</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Teacher Portal</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-tab="dashboardSec" onclick="switchTeacherTab(event, 'dashboardSec')">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="requestsSec" onclick="switchTeacherTab(event, 'requestsSec')">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+                <span class="nav-badge" id="sidebarRequestBadge" style="display:none;">0</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="upcomingSec" onclick="switchTeacherTab(event, 'upcomingSec')">
+                <span class="nav-icon">📖</span>
+                <span>Upcoming Sessions</span>
+                <span class="nav-badge purple" id="sidebarUpcomingBadge" style="display:none;">0</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="earningsSec" onclick="switchTeacherTab(event, 'earningsSec')">
+                <span class="nav-icon">💰</span>
+                <span>Earnings</span>
+            </a>
+            <a href="withdraw-earnings.html" class="nav-item">
+                <span class="nav-icon">💸</span>
+                <span>Withdraw Earnings</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="paymentsSec" onclick="switchTeacherTab(event, 'paymentsSec')">
+                <span class="nav-icon">📜</span>
+                <span>Payment History</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>Profile</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-illustration">
+            <div class="teacher-portal-badge">
+                <span>🎓 Verified Teacher</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main">
+        <!-- Top Header Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Welcome Back</h2>
+                <h1 id="teacherWelcomeTitle">Teacher Dashboard 🎓</h1>
+                <p>Manage your student requests, upcoming teaching sessions, and time credit earnings.</p>
+            </div>
+            <div class="top-actions">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search sessions, students...">
+                </div>
+                <div class="user-profile">
+                    <div class="user-avatar" id="headerUserAvatar">T</div>
+                    <div class="user-info">
+                        <div class="name" id="headerUserName">Teacher</div>
+                        <div class="role" id="headerUserRole"><span class="role-teacher-tag">Teacher 🎓</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 1: DASHBOARD OVERVIEW -->
+        <section id="dashboardSec" class="teacher-tab-content active">
+            <!-- Metric Stats Grid -->
+            <div class="teacher-stats-grid">
+                <div class="t-stat-card purple" id="cardTotalEarnings" style="cursor:pointer;" onclick="switchTeacherTab(event, 'earningsSec')">
+                    <div class="t-stat-icon">💰</div>
+                    <div class="t-stat-info">
+                        <h3 id="statTotalEarnings">0</h3>
+                        <p>Total Credits Earned</p>
+                    </div>
+                </div>
+                <div class="t-stat-card blue" id="cardStudentsTaught" style="cursor:pointer;" onclick="switchTeacherTab(event, 'paymentsSec')">
+                    <div class="t-stat-icon">🎓</div>
+                    <div class="t-stat-info">
+                        <h3 id="statStudentsTaught">0</h3>
+                        <p>Students Taught</p>
+                    </div>
+                </div>
+                <div class="t-stat-card yellow" id="cardPendingRequests" style="cursor:pointer;" onclick="switchTeacherTab(event, 'requestsSec')">
+                    <div class="t-stat-icon">⏳</div>
+                    <div class="t-stat-info">
+                        <h3 id="statPendingRequests">0</h3>
+                        <p>Pending Requests</p>
+                    </div>
+                </div>
+                <div class="t-stat-card green" id="cardActiveSessions" style="cursor:pointer;" onclick="switchTeacherTab(event, 'upcomingSec')">
+                    <div class="t-stat-icon">📖</div>
+                    <div class="t-stat-info">
+                        <h3 id="statActiveSessions">0</h3>
+                        <p>Upcoming Sessions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Split Layout -->
+            <div class="teacher-grid-split">
+                <!-- Left: Incoming Requests Quick Card -->
+                <div class="t-panel-card">
+                    <div class="panel-header">
+                        <h3>📥 Pending Student Requests</h3>
+                        <button class="btn-link" onclick="switchTeacherTab(null, 'requestsSec')">View All →</button>
+                    </div>
+                    <div id="quickRequestsList" class="panel-body-list">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+
+                <!-- Right: Upcoming Scheduled Sessions -->
+                <div class="t-panel-card">
+                    <div class="panel-header">
+                        <h3>🎥 Next Teaching Sessions</h3>
+                        <button class="btn-link" onclick="switchTeacherTab(null, 'upcomingSec')">View All →</button>
+                    </div>
+                    <div id="quickSessionsList" class="panel-body-list">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: SESSION REQUESTS -->
+        <section id="requestsSec" class="teacher-tab-content" style="display:none;">
+            <div class="section-card">
+                <div class="section-header-row">
+                    <div>
+                        <h2>📥 Student Session Requests</h2>
+                        <p>Review incoming requests from students wanting to learn from you.</p>
+                    </div>
+                </div>
+                <div class="requests-list-container" id="requestsFullContainer">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: UPCOMING SESSIONS -->
+        <section id="upcomingSec" class="teacher-tab-content" style="display:none;">
+            <div class="section-card">
+                <div class="section-header-row">
+                    <div>
+                        <h2>📖 Upcoming Teaching Sessions</h2>
+                        <p>Your scheduled virtual sessions with students. Join call when active.</p>
+                    </div>
+                </div>
+                <div class="upcoming-sessions-container" id="upcomingFullContainer">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: EARNINGS -->
+        <section id="earningsSec" class="teacher-tab-content" style="display:none;">
+            <div class="section-card">
+                <div class="section-header-row">
+                    <div>
+                        <h2>💰 Teaching Earnings & Rates</h2>
+                        <p>Overview of earned time credits and hourly rates.</p>
+                    </div>
+                </div>
+
+                <div class="earnings-summary-row">
+                    <div class="earnings-box">
+                        <div class="box-label">Wallet Balance</div>
+                        <div class="box-value" id="earningsWalletBalance">0 Credits</div>
+                        <div class="box-sub" style="margin-bottom:0.8rem;">Ready to withdraw or spend</div>
+                        <a href="withdraw-earnings.html" class="btn-accept" style="text-decoration:none; display:inline-block;">Withdraw Earnings 💸</a>
+                    </div>
+                    <div class="earnings-box">
+                        <div class="box-label">Total Teaching Hours</div>
+                        <div class="box-value" id="earningsTotalHours">0 Hours</div>
+                        <div class="box-sub">Time spent teaching students</div>
+                    </div>
+                </div>
+
+                <div class="earnings-breakdown-card">
+                    <h3>📊 Earnings Breakdown by Skill</h3>
+                    <div id="earningsBreakdownContainer">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PAYMENT HISTORY -->
+        <section id="paymentsSec" class="teacher-tab-content" style="display:none;">
+            <div class="section-card">
+                <div class="section-header-row">
+                    <div>
+                        <h2>📜 Payment & Credit History</h2>
+                        <p>Detailed ledger of time credits earned from completed teaching sessions.</p>
+                    </div>
+                </div>
+                <div class="history-table-wrap">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Date & Time</th>
+                                <th>Student</th>
+                                <th>Skill Taught</th>
+                                <th>Credits Earned</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paymentHistoryTbody">
+                            <!-- Rendered dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Teacher Edit & Confirm Session Modal -->
+    <div id="teacherEditModal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center;">
+        <div class="modal-container" style="background:var(--surface); padding:1.8rem; border-radius:16px; width:90%; max-width:480px; box-shadow:0 20px 25px -5px rgba(0,0,0,0.3);">
+            <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem;">
+                <h3 style="margin:0; font-size:1.2rem;">✏️ Edit & Confirm Session Timing</h3>
+                <button type="button" class="modal-close" onclick="closeTeacherEditModal()" style="background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--text-light);">✕</button>
+            </div>
+            <form id="teacherEditForm" onsubmit="submitTeacherEditAndAccept(event)">
+                <input type="hidden" id="teacherEditReqId">
+                
+                <div class="modal-form-group" style="margin-bottom:1rem;">
+                    <label for="teacherEditDate" style="display:block; margin-bottom:0.4rem; font-weight:600; font-size:0.85rem;">📅 Session Date</label>
+                    <input type="date" id="teacherEditDate" class="modal-input" style="width:100%; padding:0.65rem; border-radius:8px; border:1px solid var(--border); background:var(--background); color:var(--text);" required>
+                </div>
+                
+                <div class="modal-time-range" style="display:flex; gap:0.5rem; align-items:center; margin-bottom:1.2rem;">
+                    <div class="modal-form-group" style="flex:1;">
+                        <label for="teacherEditStartTime" style="display:block; margin-bottom:0.4rem; font-weight:600; font-size:0.85rem;">🕒 Start Time</label>
+                        <input type="time" id="teacherEditStartTime" class="modal-input" style="width:100%; padding:0.65rem; border-radius:8px; border:1px solid var(--border); background:var(--background); color:var(--text);" required>
+                    </div>
+                    <span style="margin-top:1.2rem; color:var(--text-light); font-weight:600;">to</span>
+                    <div class="modal-form-group" style="flex:1;">
+                        <label for="teacherEditEndTime" style="display:block; margin-bottom:0.4rem; font-weight:600; font-size:0.85rem;">🕒 End Time</label>
+                        <input type="time" id="teacherEditEndTime" class="modal-input" style="width:100%; padding:0.65rem; border-radius:8px; border:1px solid var(--border); background:var(--background); color:var(--text);" required>
+                    </div>
+                </div>
+
+                <div class="modal-actions" style="display:flex; gap:0.8rem; justify-content:flex-end;">
+                    <button type="button" class="btn-modal-cancel" onclick="closeTeacherEditModal()" style="padding:0.65rem 1.2rem; border-radius:8px; border:1px solid var(--border); background:none; cursor:pointer; color:var(--text);">Cancel</button>
+                    <button type="submit" class="btn-modal-confirm btn-accept" style="padding:0.65rem 1.4rem; border-radius:8px; border:none; background:#059669; color:#fff; font-weight:700; cursor:pointer;">
+                        <span>Accept & Save Timing ✅</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/teacher-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn | Skill-for-Skill Barter Learning Platform</title>
+    <meta name="description"
+        content="Exchange your skills, teach what you love, and learn what you need. A modern, collaborative, barter-based learning network powered by time credits.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" id="nav-logo">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="18" cy="18" r="16" fill="url(#logo-grad)" />
+                    <path d="M12 18H24M18 12L24 18L18 24" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <defs>
+                        <linearGradient id="logo-grad" x1="2" y1="2" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#3B82F6" />
+                            <stop offset="100%" stop-color="#60A5FA" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Barter<span class="gradient-text text-bold">Learn</span></span>
+            </a>
+
+            <!-- Mobile Navigation Toggle -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Navigation Menu -->
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#faqs" class="nav-link">FAQs</a>
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                    <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-glows">
+            <div class="glow-1"></div>
+            <div class="glow-2"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge">🔄 Skill Exchange Platform</div>
+                <h1 class="hero-title">Learn Any Skill <br>by Teaching <span class="gradient-text">What You Know</span>
+                </h1>
+                <p class="hero-desc">Skip the tuition fees. Exchange your coding, music, language, or design talents
+                    with others. Teach for an hour, earn one Time Credit, and spend it learning anything you want.</p>
+                <div class="hero-actions">
+                    <a href="signup.html" class="btn btn-primary btn-lg">Start Learning</a>
+                    <a href="signup.html" class="btn btn-secondary btn-lg">Become a Teacher</a>
+                </div>
+                <div class="hero-trust">
+                    <div class="avatar-group">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80"
+                            alt="User Avatar" class="trust-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80"
+                            alt="User Avatar" class="trust-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80"
+                            alt="User Avatar" class="trust-avatar">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80"
+                            alt="User Avatar" class="trust-avatar">
+                    </div>
+                    <p class="trust-text">Join <strong>50k+ active users</strong> swapping skills daily!</p>
+                </div>
+            </div>
+
+            <div class="hero-illustration">
+                <!-- Modern CSS and SVG Interactive Illustration -->
+                <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+                    <!-- Background Grid & Aura -->
+                    <circle cx="250" cy="250" r="180" fill="url(#hero-bg-grad)" opacity="0.1" />
+                    <circle cx="250" cy="250" r="230" stroke="url(#hero-border-grad)" stroke-width="1.5"
+                        stroke-dasharray="10 15" opacity="0.3" class="spin-slow" />
+                    <circle cx="250" cy="250" r="140" stroke="url(#hero-border-grad)" stroke-width="1" opacity="0.2" />
+
+                    <!-- Connecting Lines (Exchange Nodes) -->
+                    <path d="M130 180 C 180 120, 320 120, 370 180" stroke="url(#line-grad-1)" stroke-width="3"
+                        stroke-linecap="round" stroke-dasharray="8 6" class="dash-flow-1" />
+                    <path d="M370 320 C 320 380, 180 380, 130 320" stroke="url(#line-grad-2)" stroke-width="3"
+                        stroke-linecap="round" stroke-dasharray="8 6" class="dash-flow-2" />
+
+                    <!-- User Node Left (Teacher / Learner 1) -->
+                    <g class="float-node-1">
+                        <circle cx="120" cy="250" r="60" fill="rgba(255, 255, 255, 0.85)" stroke="#DCEBFF"
+                            stroke-width="2" class="glass-bg" />
+                        <clipPath id="avatar-clip-1">
+                            <circle cx="120" cy="235" r="30" />
+                        </clipPath>
+                        <image
+                            href="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80"
+                            x="90" y="205" width="60" height="60" clip-path="url(#avatar-clip-1)" />
+                        <rect x="85" y="275" width="70" height="20" rx="10" fill="#3B82F6" />
+                        <text x="120" y="289" fill="white" font-family="Outfit" font-size="10" font-weight="bold"
+                            text-anchor="middle">TEACHES JS</text>
+                        <!-- Small Skill Badges around node -->
+                        <circle cx="65" cy="210" r="16" fill="#FFFFFF" stroke="#3B82F6" stroke-width="1.5" />
+                        <text x="65" y="214" font-size="12" text-anchor="middle">💻</text>
+                    </g>
+
+                    <!-- User Node Right (Teacher / Learner 2) -->
+                    <g class="float-node-2">
+                        <circle cx="380" cy="250" r="60" fill="rgba(255, 255, 255, 0.85)" stroke="#DCEBFF"
+                            stroke-width="2" class="glass-bg" />
+                        <clipPath id="avatar-clip-2">
+                            <circle cx="380" cy="235" r="30" />
+                        </clipPath>
+                        <image
+                            href="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&h=120&q=80"
+                            x="350" y="205" width="60" height="60" clip-path="url(#avatar-clip-2)" />
+                        <rect x="345" y="275" width="70" height="20" rx="10" fill="#60A5FA" />
+                        <text x="380" y="289" fill="white" font-family="Outfit" font-size="10" font-weight="bold"
+                            text-anchor="middle">TEACHES UI</text>
+                        <!-- Small Skill Badges around node -->
+                        <circle cx="435" cy="280" r="16" fill="#FFFFFF" stroke="#60A5FA" stroke-width="1.5" />
+                        <text x="435" y="284" font-size="12" text-anchor="middle">🎨</text>
+                    </g>
+
+                    <!-- Floating Exchange/Match Artifact in Middle -->
+                    <g class="float-node-center">
+                        <rect x="210" y="220" width="80" height="60" rx="12" fill="rgba(255, 255, 255, 0.95)"
+                            stroke="url(#hero-border-grad)" stroke-width="1.5" />
+                        <text x="250" y="245" fill="#1E293B" font-family="Outfit" font-size="13" font-weight="bold"
+                            text-anchor="middle">MATCH!</text>
+                        <text x="250" y="265" fill="#3B82F6" font-family="Inter" font-size="10" font-weight="600"
+                            text-anchor="middle">1 Credit/Hr</text>
+                        <!-- Rotating loop icon -->
+                        <circle cx="250" cy="180" r="20" fill="url(#logo-grad)" />
+                        <path d="M245 180H255M250 175L255 180L250 185" stroke="white" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+
+                    <!-- SVG Gradients -->
+                    <defs>
+                        <radialGradient id="hero-bg-grad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#60A5FA" />
+                            <stop offset="100%" stop-color="#3B82F6" stop-opacity="0" />
+                        </radialGradient>
+                        <linearGradient id="hero-border-grad" x1="0" y1="0" x2="500" y2="500"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#3B82F6" />
+                            <stop offset="50%" stop-color="#60A5FA" />
+                            <stop offset="100%" stop-color="#10B981" />
+                        </linearGradient>
+                        <linearGradient id="line-grad-1" x1="130" y1="180" x2="370" y2="180">
+                            <stop offset="0%" stop-color="#3B82F6" />
+                            <stop offset="100%" stop-color="#60A5FA" />
+                        </linearGradient>
+                        <linearGradient id="line-grad-2" x1="370" y1="320" x2="130" y2="320">
+                            <stop offset="0%" stop-color="#60A5FA" />
+                            <stop offset="100%" stop-color="#3B82F6" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works section-padding" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">💡 Simple & Rewarding</div>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-desc">Our platform operates on a simple principle: your time is your currency. Swap
+                    skills without spending actual money.</p>
+            </div>
+
+            <div class="steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon-wrapper">
+                        <svg class="step-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="step-card-title">Create Profile</h3>
+                    <p class="step-card-desc">Sign up and build your barter profile. Share your professional background
+                        and learning goals.</p>
+                    <div class="step-card-indicator"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon-wrapper">
+                        <svg class="step-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="step-card-title">Add Your Skills</h3>
+                    <p class="step-card-desc">List the subjects or skills you can teach, and choose the ones you want to
+                        acquire in return.</p>
+                    <div class="step-card-indicator"></div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon-wrapper">
+                        <svg class="step-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="step-card-title">Match with Learners</h3>
+                    <p class="step-card-desc">Connect automatically with compatible matches, or browse and send
+                        personalized invitations.</p>
+                    <div class="step-card-indicator"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-icon-wrapper">
+                        <svg class="step-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="step-card-title">Earn & Spend Credits</h3>
+                    <p class="step-card-desc">Complete sessions, receive ratings, and earn Time Credits to unlock
+                        learning from any other mentor.</p>
+                    <div class="step-card-indicator"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section-padding" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">✨ Key Features</div>
+                <h2 class="section-title">Built for Modern Learners</h2>
+                <p class="section-desc">Experience a frictionless learning barter ecosystem packed with robust tools
+                    designed to support your path to success.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1: Skill Matching -->
+                <div class="feature-card">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Smart Skill Matching</h3>
+                    <p class="feature-desc">Our intelligent algorithm matches what you want to learn with local or
+                        remote members who are looking to learn exactly what you teach.</p>
+                </div>
+
+                <!-- Feature 2: Time Credit Wallet -->
+                <div class="feature-card">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Time Credit Wallet</h3>
+                    <p class="feature-desc">Keep track of your earned hours in a glassmorphic wallet interface. A 1-to-1
+                        hour swap logic guarantees that every exchange is fair.</p>
+                </div>
+
+                <!-- Feature 3: Verified Profiles -->
+                <div class="feature-card">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Verified Profiles</h3>
+                    <p class="feature-desc">Learn with absolute peace of mind. We screen background verifications and
+                        professional linkings to ensure all teaching profiles are authentic.</p>
+                </div>
+
+                <!-- Feature 4: Ratings & Reviews -->
+                <div class="feature-card">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.907c.969 0 1.371 1.24.588 1.81l-3.97 2.883a1 1 0 00-.364 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.971-2.883a1 1 0 00-1.17 0l-3.971 2.883c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.364-1.118L2.98 12.08c-.783-.57-.38-1.81.588-1.81h4.907a1 1 0 00.95-.69l1.519-4.674z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Ratings & Reviews</h3>
+                    <p class="feature-desc">Grow transparently. Read detailed summaries and student reflections on
+                        teachers' performance prior to scheduling a barter.</p>
+                </div>
+
+                <!-- Feature 5: Secure Learning -->
+                <div class="feature-card">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Secure Learning</h3>
+                    <p class="feature-desc">Enjoy high-quality video call tools built-in directly. Rest easy with
+                        automatically encrypted rooms, recorded logs, and shared workspaces.</p>
+                </div>
+
+                <!-- Feature 6: Community Learning -->
+                <div class="feature-card">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Community Learning</h3>
+                    <p class="feature-desc">Form local study circles, post public barter requests, or organize
+                        mini-hackathons to trade expertise across dynamic focus groups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics" id="about">
+        <div class="container stats-container">
+            <div class="stat-card">
+                <h3 class="stat-number gradient-text">50,000+</h3>
+                <p class="stat-label">Total Users</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number gradient-text">1,200+</h3>
+                <p class="stat-label">Skills Available</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number gradient-text">150,000+</h3>
+                <p class="stat-label">Successful Exchanges</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number gradient-text">300,000+</h3>
+                <p class="stat-label">Learning Hours</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">👥 Success Stories</div>
+                <h2 class="section-title">What Our Community Says</h2>
+                <p class="section-desc">Thousands of hours exchanged. Real professionals growing their skills together
+                    everyday.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"I taught French for 5 hours and used my credits to learn React from a
+                        senior engineer. This is the best thing that ever happened to my career. Absolutely
+                        frictionless!"</p>
+                    <div class="testimonial-user">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&h=100&q=80"
+                            alt="Sarah L." class="testimonial-avatar">
+                        <div class="testimonial-user-info">
+                            <h4 class="testimonial-name">Sarah Lecompte</h4>
+                            <p class="testimonial-role">French Tutor & Aspiring Developer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"I was skeptical about barter learning, but the quality of mentorship
+                        here is premium. I taught UI Design to a guitarist who taught me how to play acoustic music!"
+                    </p>
+                    <div class="testimonial-user">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&h=100&q=80"
+                            alt="Marcus V." class="testimonial-avatar">
+                        <div class="testimonial-user-info">
+                            <h4 class="testimonial-name">Marcus Vance</h4>
+                            <p class="testimonial-role">Senior Product Designer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The Time Credit system works perfectly. There is no stress about
+                        pricing or payment. Just pure knowledge sharing. Highly recommend to everyone who wants to
+                        grow!"</p>
+                    <div class="testimonial-user">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80"
+                            alt="Elena K." class="testimonial-avatar">
+                        <div class="testimonial-user-info">
+                            <h4 class="testimonial-name">Elena Rostova</h4>
+                            <p class="testimonial-role">Violinist & Copywriter</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faqs section-padding" id="faqs">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">❓ FAQ</div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-desc">Got questions about how BarterLearn works? We have answers.</p>
+            </div>
+
+            <div class="faq-list">
+                <!-- FAQ 1 -->
+                <details class="faq-item" open>
+                    <summary class="faq-question">
+                        <span>How do Time Credits work?</span>
+                        <span class="faq-icon">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.5 6.75L9 11.25L13.5 6.75" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Time Credits are the platform's internal currency. One hour of teaching earns you exactly one
+                            Time Credit. You can then use this Time Credit to buy one hour of learning from anyone else
+                            on the platform, regardless of the subject.</p>
+                    </div>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Do I have to teach the same person who teaches me?</span>
+                        <span class="faq-icon">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.5 6.75L9 11.25L13.5 6.75" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>No! That's the beauty of BarterLearn. We support indirect bartering. You can teach JavaScript
+                            to User A, earn a Time Credit, and use that credit to learn Spanish from User B. You don't
+                            have to swap directly with the same person.</p>
+                    </div>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Is there a membership fee to join?</span>
+                        <span class="faq-icon">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.5 6.75L9 11.25L13.5 6.75" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Joining BarterLearn is completely free! Everyone starts with 1 free Time Credit to test the
+                            waters and schedule their first session. After that, you earn credits by sharing your
+                            knowledge with others.</p>
+                    </div>
+                </details>
+
+                <!-- FAQ 4 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>What if a session doesn't go well or is cancelled?</span>
+                        <span class="faq-icon">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.5 6.75L9 11.25L13.5 6.75" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>We have a secure dispute system. If a tutor cancels last minute or doesn't show up, your Time
+                            Credit is refunded to your wallet. You can rate and review every session, which helps us
+                            keep our community standards high.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action (CTA) Section -->
+    <section class="cta-section section-padding">
+        <div class="container cta-container">
+            <div class="cta-glow"></div>
+            <h2 class="cta-title">Ready to Trade Your Skills?</h2>
+            <p class="cta-desc">Unlock infinite learning without spending a dollar. Create your profile today and claim
+                your first free Time Credit.</p>
+            <div class="cta-actions">
+                <a href="signup.html" class="btn btn-primary btn-lg">Join for Free</a>
+                <a href="#how-it-works" class="btn btn-secondary btn-lg">Explore How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="18" r="16" fill="url(#footer-logo-grad)" />
+                        <path d="M12 18H24M18 12L24 18L18 24" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <defs>
+                            <linearGradient id="footer-logo-grad" x1="2" y1="2" x2="34" y2="34"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#3B82F6" />
+                                <stop offset="100%" stop-color="#60A5FA" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>Barter<span class="gradient-text text-bold">Learn</span></span>
+                </a>
+                <p class="footer-desc">A premium, collaborative barter-based platform enabling experts and learners
+                    around the world to swap skills on a 1-to-1 hour credit basis.</p>
+                <div class="social-links">
+                    <a href="#twitter" aria-label="Twitter" class="social-icon">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M22 5.8a8.1 8.1 0 01-2.3.7 4 4 0 001.8-2.3 8.3 8.3 0 01-2.6 1 4 4 0 00-6.9 3.7 11.5 11.5 0 01-8.3-4.2 4 4 0 001.2 5.4 4 4 0 01-1.8-.5v.1a4 4 0 003.2 4 4 0 01-1.8 0 4 4 0 003.8 2.8 8.1 8.1 0 01-5.1 1.8A8 8 0 012 21.3a11.5 11.5 0 006.2 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5A8.2 8.2 0 0022 5.8z" />
+                        </svg>
+                    </a>
+                    <a href="#linkedin" aria-label="LinkedIn" class="social-icon">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="#instagram" aria-label="Instagram" class="social-icon">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4 class="footer-title">Platform</h4>
+                <ul>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                </ul>
+            </div>
+
+           
+
+            <div class="footer-contact">
+                <h4 class="footer-title">Contact</h4>
+                <p>Have questions or feedback? Get in touch.</p>
+                <a href="mailto:support@barterlearn.com" class="contact-email">support@barterlearn.com</a>
+                <p class="contact-address">Dehradun,Uttarakhand, India</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 BarterLearn Platform. All rights reserved. Made with ❤️ for collaborative education.</p>
+            <div class="footer-legal">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

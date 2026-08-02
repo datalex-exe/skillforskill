@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - My Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <!-- SVG Gradients Definition -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="gradientPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#8B5CF6"/>
+                <stop offset="100%" style="stop-color:#A855F7"/>
+            </linearGradient>
+            <linearGradient id="gradientWallet" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#F472B6"/>
+                <stop offset="100%" style="stop-color:#A855F7"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">👥</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Skill for Skill, Grow Together</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+                        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+            <a href="browse-people.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Browse People</span>
+            </a>
+            <a href="session-request.html" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+            </a>
+            <a href="my-sessions.html" class="nav-item">
+                <span class="nav-icon">📖</span>
+                <span>My Sessions</span>
+            </a>
+            <a href="credits.html" class="nav-item">
+                <span class="nav-icon">💰</span>
+                <span>Time Wallet</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <span class="nav-icon">✉️</span>
+                <span>Messages</span>
+            </a>
+            <a href="reviews.html" class="nav-item">
+                <span class="nav-icon">⭐</span>
+                <span>Reviews</span>
+            </a>
+            <a href="premium.html" class="nav-item">
+                <span class="nav-icon">💎</span>
+                <span>Upgrade Premium</span>
+            </a>
+            <a href="admin-teacher-applications.html" class="nav-item" id="adminSidebarNav" style="display:none;">
+                <span class="nav-icon">🎓</span>
+                <span>Admin Portal</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-illustration">
+            <svg viewBox="0 0 180 140" style="width:100%;max-width:180px">
+                <circle cx="90" cy="70" r="60" fill="url(#grad1)" opacity="0.3"/>
+                <defs>
+                    <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0B0F19;stop-opacity:0" />
+                    </radialGradient>
+                </defs>
+                <g transform="translate(30, 40)">
+                    <rect x="15" y="25" width="28" height="45" rx="14" fill="#F59E0B"/>
+                    <circle cx="29" cy="15" r="12" fill="#FDBA74"/>
+                    <path d="M17 10 Q29 0 41 10" fill="#1E293B"/>
+                    <circle cx="25" cy="14" r="1.5" fill="#1E293B"/>
+                    <circle cx="33" cy="14" r="1.5" fill="#1E293B"/>
+                    <path d="M26 20 Q29 23 32 20" stroke="#1E293B" stroke-width="1" fill="none"/>
+                    <rect x="38" y="20" width="20" height="8" rx="4" fill="#F59E0B" transform="rotate(-30 38 20)"/>
+                    <circle cx="56" cy="8" r="6" fill="#FDBA74"/>
+                </g>
+                <g transform="translate(100, 40)">
+                    <rect x="15" y="25" width="28" height="45" rx="14" fill="#3B82F6"/>
+                    <circle cx="29" cy="15" r="12" fill="#FDBA74"/>
+                    <path d="M17 10 Q29 0 41 10" fill="#1E293B"/>
+                    <circle cx="25" cy="14" r="1.5" fill="#1E293B"/>
+                    <circle cx="33" cy="14" r="1.5" fill="#1E293B"/>
+                    <path d="M26 20 Q29 23 32 20" stroke="#1E293B" stroke-width="1" fill="none"/>
+                    <rect x="0" y="20" width="20" height="8" rx="4" fill="#3B82F6" transform="rotate(30 20 20)"/>
+                    <circle cx="2" cy="8" r="6" fill="#FDBA74"/>
+                </g>
+                <text x="20" y="30" font-size="12" fill="#F59E0B">✨</text>
+                <text x="140" y="35" font-size="10" fill="#A855F7">✨</text>
+            </svg>
+        </div>
+
+        <div class="sidebar-cta-text">
+            <h3>Exchange Skills</h3>
+            <p>Earn Time Credits</p>
+        </div>
+
+        <a href="browse-people.html" class="btn-explore">
+            <span>Explore Now</span>
+            <span>→</span>
+        </a>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Manage Account</h2>
+                <h1>My Profile 👤</h1>
+                <p>Configure your barter details, skills to share, and view achievements.</p>
+            </div>
+            <div class="top-actions">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search skills, people...">
+                </div>
+                <button class="icon-btn">
+                    🔔
+                    
+                </button>
+                <button class="icon-btn">
+                    💬
+                    
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar" id="headerUserAvatar">VT</div>
+                    <div class="user-info">
+                        <div class="name" id="headerUserName">Vanshika</div>
+                        <div class="role" id="headerUserRole">Learner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Detail Layout Grid -->
+        <div class="profile-layout-grid">
+            <!-- Left Panel (Avatar, Stats, Achievements) -->
+            <div class="profile-left-col">
+                <!-- Avatar & Image Upload Card -->
+                <div class="profile-card avatar-card">
+                    <div class="avatar-edit-wrapper">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%2394A3B8' style='background:%23F1F5F9;'><circle cx='50' cy='38' r='22'/><path d='M50 66c-20 0-36 12-36 24v5h72v-5c0-12-16-24-36-24z'/></svg>" 
+                             alt="Profile Avatar" class="profile-avatar-large" id="avatarImage">
+                        <label for="avatarUploadInput" class="avatar-upload-overlay">
+                            <span>📷</span>
+                            <span>Change Photo</span>
+                        </label>
+                        <input type="file" id="avatarUploadInput" accept="image/*" style="display:none;">
+                    </div>
+                    <h2 class="display-fullname" id="displayFullName">Vanshika Tiwari</h2>
+                    <p class="display-username" id="displayUsername">@vanshika</p>
+                    <div id="displayPremiumBadge" style="display:none; margin:0.4rem 0 0.6rem 0;">
+                        <span style="background:linear-gradient(135deg, #f59e0b, #d97706); color:#000; font-weight:800; font-size:0.75rem; padding:0.25rem 0.75rem; border-radius:20px; box-shadow:0 4px 12px rgba(245,158,11,0.3); display:inline-flex; align-items:center; gap:0.3rem;">
+                            <span>💎</span> <span>PREMIUM MEMBER</span>
+                        </span>
+                    </div>
+                    <p class="display-bio-short" id="displayBioShort">Learning code, teaching UI/UX design.</p>
+                </div>
+
+                <!-- Become a Teacher Card / CTA -->
+                <div class="profile-card become-teacher-card" id="becomeTeacherCard">
+                    <div class="teacher-card-content">
+                        <div class="teacher-icon-badge">🎓</div>
+                        <div class="teacher-text">
+                            <h3 id="teacherCardTitle">Become a Teacher</h3>
+                            <p id="teacherCardDesc">Share your knowledge, help others grow, and earn time credits.</p>
+                        </div>
+                    </div>
+                    <button class="btn-become-teacher" id="btnOpenTeacherModal" onclick="openTeacherModal()">
+                        <span>Apply Now 🚀</span>
+                    </button>
+                    <div id="teacherAppStatusBadge" style="display:none; margin-top:0.8rem; text-align:center;">
+                        <span class="status-badge-pending">⏳ Application Under Review</span>
+                    </div>
+                </div>
+
+                <!-- Stats Cards Section -->
+                <div class="stats-mini-grid">
+                    <div class="stat-box purple-grad">
+                        <div class="stat-icon-wrap">⏱️</div>
+                        <div class="stat-data">
+                            <h3 id="statCredits">120</h3>
+                            <p>Time Credits</p>
+                        </div>
+                    </div>
+                    <div class="stat-box purple-grad">
+                        <div class="stat-icon-wrap">🎓</div>
+                        <div class="stat-data">
+                            <h3 id="statTaught">0</h3>
+                            <p>Skills Taught</p>
+                        </div>
+                    </div>
+                    <div class="stat-box purple-grad">
+                        <div class="stat-icon-wrap">📖</div>
+                        <div class="stat-data">
+                            <h3 id="statLearned">0</h3>
+                            <p>Hours Learned</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements Card -->
+                <div class="profile-card achievements-card">
+                    <h3 class="card-heading">🏆 Achievements</h3>
+                    <div class="achievements-list" id="achievementsList">
+                        <!-- Loaded dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel (Personal Info, Skills Manager) -->
+            <div class="profile-right-col">
+                <div class="profile-card form-card">
+                    <!-- Tab Headers -->
+                    <div class="tab-header">
+                        <button class="tab-btn active" onclick="switchTab(event, 'personalInfoTab')">Personal Details</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'skillsTab')">Skills Inventory</button>
+                    </div>
+
+                    <!-- Personal Information Form -->
+                    <form id="profileForm" onsubmit="saveProfileChanges(event)">
+                        <div id="personalInfoTab" class="tab-content active">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">First Name</label>
+                                    <div class="input-wrap">
+                                        <span class="input-icon">👤</span>
+                                        <input type="text" class="form-input" id="firstNameInput" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Last Name</label>
+                                    <div class="input-wrap">
+                                        <span class="input-icon">👤</span>
+                                        <input type="text" class="form-input" id="lastNameInput" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Username</label>
+                                <div class="input-wrap">
+                                    <span class="input-icon">@</span>
+                                    <input type="text" class="form-input" id="usernameInput" disabled>
+                                    <span class="input-notice">Username cannot be changed.</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <div class="input-wrap">
+                                    <span class="input-icon">✉️</span>
+                                    <input type="email" class="form-input" id="emailInput" disabled>
+                                    <span class="input-notice">Email cannot be changed.</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">My Role</label>
+                                <div class="input-wrap">
+                                    <span class="input-icon">👥</span>
+                                    <select class="form-input" id="roleSelect" required>
+                                        <option value="learner">Learner</option>
+                                        <option value="teacher">Teacher</option>
+                                        <option value="both">Both</option>
+                                    </select>
+                                    <span class="select-arrow">▼</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Bio Description</label>
+                                <textarea class="form-textarea" id="bioTextarea" placeholder="Describe your background, skills, and teaching experience..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Skills Management Form Tab -->
+                        <div id="skillsTab" class="tab-content">
+                            <datalist id="predefinedSkills">
+                                <!-- Technology -->
+                                <option value="Web Development"></option>
+                                <option value="Python Programming"></option>
+                                <option value="ReactJS"></option>
+                                <option value="NodeJS"></option>
+                                <option value="SQLite"></option>
+                                <option value="PostgreSQL"></option>
+                                <option value="JavaScript"></option>
+                                <option value="HTML/CSS"></option>
+                                <!-- Design -->
+                                <option value="UI/UX Design"></option>
+                                <option value="Figma Layouts"></option>
+                                <option value="Wireframing"></option>
+                                <option value="Web Design"></option>
+                                <option value="Graphic Design"></option>
+                                <!-- Languages -->
+                                <option value="Mandarin"></option>
+                                <option value="Spanish"></option>
+                                <option value="French"></option>
+                                <option value="German"></option>
+                                <!-- Music -->
+                                <option value="Acoustic Guitar"></option>
+                                <option value="Music Theory"></option>
+                                <option value="Piano Basics"></option>
+                                <!-- Business -->
+                                <option value="Digital Marketing"></option>
+                                <option value="SEO Audit"></option>
+                                <option value="Copywriting"></option>
+                                <option value="Social Media Ads"></option>
+                            </datalist>
+
+                            <div class="skills-manager-section">
+                                <h4 class="section-title">🎓 Skills I Teach</h4>
+                                <p class="section-desc">Add tags for skills you're confident teaching others.</p>
+                                <div class="tags-container" id="skillsTeachContainer">
+                                    <!-- Rendered dynamically -->
+                                </div>
+                                <div class="tag-input-row">
+                                    <input type="text" class="tag-input" id="skillsTeachInput" list="predefinedSkills" placeholder="Select or type a teaching skill (e.g. Python, Guitar)...">
+                                    <button type="button" class="btn-tag-add" onclick="addSkillTag('Teach')">+</button>
+                                </div>
+                            </div>
+
+                            <div class="skills-manager-section" style="margin-top: 2rem;">
+                                <h4 class="section-title">🔍 Skills I Want to Learn</h4>
+                                <p class="section-desc">Add tags for skills you'd like to learn in exchange.</p>
+                                <div class="tags-container" id="skillsLearnContainer">
+                                    <!-- Rendered dynamically -->
+                                </div>
+                                <div class="tag-input-row">
+                                    <input type="text" class="tag-input" id="skillsLearnInput" list="predefinedSkills" placeholder="Select or type a learning goal (e.g. Spanish, UI/UX)...">
+                                    <button type="button" class="btn-tag-add" onclick="addSkillTag('Learn')">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Buttons -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit-purple" id="btnSaveProfile">
+                                <span>💾 Save Profile Changes</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Recent Activity Timeline Card -->
+                <div class="profile-card timeline-card" style="margin-top: 1.5rem;">
+                    <h3 class="card-heading">📅 Recent Activity Timeline</h3>
+                    <div class="timeline-container" id="timelineContainer">
+                        <!-- Loaded dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Become a Teacher Modal -->
+    <div class="modal-overlay" id="teacherModalOverlay" style="display:none;" onclick="handleTeacherModalOverlayClick(event)">
+        <div class="modal-card teacher-modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>🎓 Apply to Become a Teacher</h2>
+                <button class="modal-close-btn" type="button" onclick="closeTeacherModal()">✕</button>
+            </div>
+            <p class="modal-subtitle">Fill in your qualifications, skills, experience, and hourly fee to submit your teacher application.</p>
+            
+            <form id="teacherAppForm" onsubmit="submitTeacherApplication(event)">
+                <div class="form-group">
+                    <label class="form-label">Qualifications <span style="color:#ef4444">*</span></label>
+                    <div class="input-wrap">
+                        <span class="input-icon">📜</span>
+                        <input type="text" class="form-input" id="teacherQualificationsInput" placeholder="e.g. B.Tech CS, Certified Web Developer" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Teaching Skills <span style="color:#ef4444">*</span></label>
+                    <div class="input-wrap">
+                        <span class="input-icon">💡</span>
+                        <input type="text" class="form-input" id="teacherSkillsInput" placeholder="e.g. JavaScript, React, UI/UX Design, Guitar" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Experience <span style="color:#ef4444">*</span></label>
+                    <textarea class="form-textarea" id="teacherExperienceInput" rows="3" placeholder="Describe your relevant teaching or industry experience..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Hourly Fee (Credits per Hour) <span style="color:#ef4444">*</span></label>
+                    <div class="input-wrap">
+                        <span class="input-icon">💰</span>
+                        <input type="number" class="form-input" id="teacherHourlyFeeInput" min="1" step="0.5" placeholder="e.g. 1" required>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeTeacherModal()">Cancel</button>
+                    <button type="submit" class="btn-submit-purple" id="btnSubmitTeacherApp">
+                        <span>🚀 Submit Application</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Side Menu Toggle JavaScript (mobile support) -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - Time Credits Wallet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/credits.css">
+</head>
+<body>
+    <!-- SVG Gradients Definition -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="gradientWallet" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#7C3AED"/>
+                <stop offset="100%" style="stop-color:#EC4899"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">👥</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Skill for Skill, Grow Together</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+                        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+            <a href="browse-people.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Browse People</span>
+            </a>
+            <a href="session-request.html" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+            </a>
+            <a href="my-sessions.html" class="nav-item">
+                <span class="nav-icon">📖</span>
+                <span>My Sessions</span>
+            </a>
+            <a href="credits.html" class="nav-item active">
+                <span class="nav-icon">💰</span>
+                <span>Time Wallet</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <span class="nav-icon">✉️</span>
+                <span>Messages</span>
+            </a>
+            <a href="reviews.html" class="nav-item">
+                <span class="nav-icon">⭐</span>
+                <span>Reviews</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Time Credits</h2>
+                <h1>My Wallet 💰</h1>
+                <p>Track your earned time credits, transaction histories, and learning stats.</p>
+            </div>
+            <div class="top-actions">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search transactions...">
+                </div>
+                <button class="icon-btn">
+                    🔔
+                </button>
+                <button class="icon-btn">
+                    💬
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar" id="headerUserAvatar">VT</div>
+                    <div class="user-info">
+                        <div class="name" id="headerUserName">Vanshika</div>
+                        <div class="role" id="headerUserRole">Learner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Credits Dashboard Layout -->
+        <div class="credits-layout">
+            <!-- Top Wallet Banner Section -->
+            <div class="wallet-banner-card">
+                <div class="banner-glow"></div>
+                <div class="wallet-data">
+                    <div class="wallet-balance-block">
+                        <p class="wallet-lbl">Time Wallet Balance</p>
+                        <h2 class="wallet-number" id="walletBalance">0</h2>
+                        <span class="credits-denom">Time Credits</span>
+                    </div>
+                    <div class="wallet-sub-metrics">
+                        <div class="sub-metric">
+                            <span class="lbl">Credits Earned</span>
+                            <h4 id="earnedCredits">0</h4>
+                        </div>
+                        <div class="sub-metric">
+                            <span class="lbl">Credits Spent</span>
+                            <h4 id="spentCredits">0</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Progress bar card -->
+                <div class="wallet-progress-card">
+                    <div class="progress-info">
+                        <span id="learningGoalLabel">Learning Goal Progress</span>
+                        <span class="progress-percentage" id="learningGoalPercent">0%</span>
+                    </div>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" id="learningGoalFill" style="width: 0%;"></div>
+                    </div>
+                    <p class="progress-hint" id="learningGoalHint">No learning goal created yet.</p>
+                </div>
+            </div>
+
+            <!-- Transaction History Card -->
+            <div class="profile-card transactions-card">
+                <h3 class="card-heading">📜 Transaction History Log</h3>
+                <div class="table-responsive">
+                    <table class="transaction-table">
+                        <thead>
+                            <tr>
+                                <th>Transaction Type</th>
+                                <th>Partner</th>
+                                <th>Skill Swapped</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionLogBody">
+                            <!-- Loaded dynamically via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/credits.js"></script>
+</body>
+</html>

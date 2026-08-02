@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - Settings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/settings.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">👥</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Skill for Skill, Grow Together</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+                        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+            <a href="browse-people.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Browse People</span>
+            </a>
+            <a href="session-request.html" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+            </a>
+            <a href="my-sessions.html" class="nav-item">
+                <span class="nav-icon">📖</span>
+                <span>My Sessions</span>
+            </a>
+            <a href="credits.html" class="nav-item">
+                <span class="nav-icon">💰</span>
+                <span>Time Wallet</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <span class="nav-icon">✉️</span>
+                <span>Messages</span>
+            </a>
+            <a href="reviews.html" class="nav-item">
+                <span class="nav-icon">⭐</span>
+                <span>Reviews</span>
+            </a>
+            <a href="settings.html" class="nav-item active">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Preferences</h2>
+                <h1>Settings ⚙️</h1>
+                <p>Modify notification alerts, preferred session durations, and account options.</p>
+            </div>
+            <div class="top-actions">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search settings...">
+                </div>
+                <button class="icon-btn">
+                    🔔
+                </button>
+                <button class="icon-btn">
+                    💬
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar" id="headerUserAvatar">VT</div>
+                    <div class="user-info">
+                        <div class="name" id="headerUserName">Vanshika</div>
+                        <div class="role" id="headerUserRole">Learner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Container -->
+        <div class="settings-grid">
+            <div class="profile-card settings-card">
+                <!-- Tab Headers -->
+                <div class="tab-header">
+                    <button class="tab-btn active" onclick="switchSettingsTab(event, 'accountTab')">Account Details</button>
+                    <button class="tab-btn" onclick="switchSettingsTab(event, 'securityTab')">Password Security</button>
+                    <button class="tab-btn" onclick="switchSettingsTab(event, 'preferencesTab')">System Preferences</button>
+                </div>
+
+                <!-- Settings Form -->
+                <form id="settingsForm" onsubmit="saveSettings(event)">
+                    <!-- Account Tab -->
+                    <div id="accountTab" class="tab-content active">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <div class="input-wrap">
+                                    <span class="input-icon">👤</span>
+                                    <input type="text" class="form-input" id="firstNameInput" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name</label>
+                                <div class="input-wrap">
+                                    <span class="input-icon">👤</span>
+                                    <input type="text" class="form-input" id="lastNameInput" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Username</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">@</span>
+                                <input type="text" class="form-input" id="usernameInput" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">✉️</span>
+                                <input type="email" class="form-input" id="emailInput" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Default Role</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">👥</span>
+                                <select class="form-input" id="roleSelect" required>
+                                    <option value="learner">Learner</option>
+                                    <option value="teacher">Teacher</option>
+                                    <option value="both">Both</option>
+                                </select>
+                                <span class="select-arrow">▼</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Tab -->
+                    <div id="securityTab" class="tab-content">
+                        <div class="form-group">
+                            <label class="form-label">Current Password</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" class="form-input" id="currentPasswordInput" placeholder="Enter current password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">New Password</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" class="form-input" id="newPasswordInput" placeholder="Enter new password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Confirm New Password</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" class="form-input" id="confirmNewPasswordInput" placeholder="Confirm new password">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preferences Tab -->
+                    <div id="preferencesTab" class="tab-content">
+                        <!-- Alert Toggles -->
+                        <div class="settings-section">
+                            <h4 class="section-title">🔔 Notification Alerts</h4>
+                            <p class="section-desc">Choose how you wish to receive notifications.</p>
+                            
+                            <div class="toggle-row">
+                                <div>
+                                    <div class="toggle-label">Email Notifications</div>
+                                    <div class="toggle-desc">Receive email summaries of swaps and requests.</div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="emailNotificationsCheck" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="toggle-row">
+                                <div>
+                                    <div class="toggle-label">Session Reminders</div>
+                                    <div class="toggle-desc">Receive calendar reminders 15 mins before calls.</div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="remindersCheck" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- General Preferences -->
+                        <div class="settings-section" style="margin-top: 1.5rem;">
+                            <h4 class="section-title">⚙️ Interface Options</h4>
+                            <p class="section-desc">Configure your default localization settings.</p>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Language Preference</label>
+                                    <div class="input-wrap">
+                                        <select class="form-input" id="langSelect">
+                                            <option value="en">English</option>
+                                            <option value="es">Spanish</option>
+                                            <option value="fr">French</option>
+                                            <option value="zh">Mandarin</option>
+                                        </select>
+                                        <span class="select-arrow">▼</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Preferred Session Length</label>
+                                    <div class="input-wrap">
+                                        <select class="form-input" id="durationSelect">
+                                            <option value="30">30 minutes</option>
+                                            <option value="60" selected>1 hour</option>
+                                            <option value="120">2 hours</option>
+                                        </select>
+                                        <span class="select-arrow">▼</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="toggle-row">
+                                <div>
+                                    <div class="toggle-label">Enable Dark Mode</div>
+                                    <div class="toggle-desc">Toggle darker color styles on pages.</div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="darkModeCheck">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Action buttons -->
+                    <div class="settings-actions">
+                        <button type="button" class="btn-logout" onclick="performLogout()">Log Out</button>
+                        <button type="submit" class="btn-save-settings">Save Settings</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/settings.js"></script>
+</body>
+</html>

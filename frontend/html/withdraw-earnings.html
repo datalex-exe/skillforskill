@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - Withdraw Earnings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/teacher-dashboard.css">
+    <link rel="stylesheet" href="../css/withdraw-earnings.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">🎓</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Teacher Portal</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="teacher-dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="teacher-dashboard.html#requestsSec" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+            </a>
+            <a href="teacher-dashboard.html#upcomingSec" class="nav-item">
+                <span class="nav-icon">📖</span>
+                <span>Upcoming Sessions</span>
+            </a>
+            <a href="withdraw-earnings.html" class="nav-item active">
+                <span class="nav-icon">💸</span>
+                <span>Withdraw Earnings</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>Profile</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-illustration">
+            <div class="teacher-portal-badge">
+                <span>💸 Payout Manager</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main">
+        <!-- Top Header Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Teacher Payouts</h2>
+                <h1>Withdraw Earnings 💸</h1>
+                <p>Request payout for your earned teaching credits and track withdrawal status.</p>
+            </div>
+            <div class="top-actions">
+                <div class="user-profile">
+                    <div class="user-avatar" id="headerUserAvatar">T</div>
+                    <div class="user-info">
+                        <div class="name" id="headerUserName">Teacher</div>
+                        <div class="role"><span class="role-teacher-tag">Teacher 🎓</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Balance & Payout Form Split Grid -->
+        <div class="withdraw-grid">
+            <!-- Left Column: Available Balance & Request Payout Form -->
+            <div class="withdraw-card">
+                <div class="balance-hero-box">
+                    <div class="balance-meta">
+                        <span class="balance-label">Available Earnings Balance</span>
+                        <h2 class="balance-amount" id="availableBalanceDisplay">0 Credits</h2>
+                        <p class="balance-sub">Earned from completed teaching sessions</p>
+                    </div>
+                    <div class="balance-icon">💰</div>
+                </div>
+
+                <div class="form-title-row">
+                    <h3>💸 Request Payout</h3>
+                    <p>Enter the amount and payout destination to request withdrawal.</p>
+                </div>
+
+                <form id="withdrawForm" onsubmit="handleWithdrawSubmit(event)">
+                    <div class="form-group">
+                        <div class="label-row">
+                            <label for="withdrawAmountInput">Withdrawal Amount (Credits)</label>
+                            <button type="button" class="btn-use-max" onclick="useMaxBalance()">Use Max</button>
+                        </div>
+                        <input type="number" id="withdrawAmountInput" min="1" step="0.5" placeholder="e.g. 5" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="withdrawMethodSelect">Payment Method</label>
+                        <select id="withdrawMethodSelect" class="form-control" required>
+                            <option value="UPI">UPI ID (Google Pay, PhonePe, Paytm)</option>
+                            <option value="Bank Transfer">Direct Bank Transfer (NEFT/IMPS)</option>
+                            <option value="Paytm Wallet">Paytm Wallet Number</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="withdrawDetailsInput">Payout Destination Details</label>
+                        <input type="text" id="withdrawDetailsInput" placeholder="e.g. name@upi or A/C: 123456789 IFSC: SBIN000123" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit-payout" id="btnSubmitPayout">
+                        <span>Submit Payout Request 💸</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right Column: Pending Requests & History -->
+            <div class="withdraw-card">
+                <div class="card-header-row">
+                    <h3>⏳ Pending Withdrawal Requests</h3>
+                </div>
+                <div id="pendingWithdrawalsList" class="withdraw-list-box">
+                    <!-- Loaded dynamically -->
+                </div>
+
+                <div class="card-header-row" style="margin-top: 2rem;">
+                    <h3>📜 Withdrawal History</h3>
+                </div>
+                <div class="history-table-wrap">
+                    <table class="withdraw-history-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="withdrawalHistoryTbody">
+                            <!-- Loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/withdraw-earnings.js"></script>
+</body>
+</html>

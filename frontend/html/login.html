@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - Log In</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563EB;
+            --primary-hover: #1D4ED8;
+            --primary-light: #EFF6FF;
+            --bg: #F0F5FF;
+            --surface: #FFFFFF;
+            --text: #1E293B;
+            --text-muted: #64748B;
+            --text-light: #94A3B8;
+            --border: #E2E8F0;
+            --border-light: #F1F5F9;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            --radius: 16px;
+            --radius-sm: 12px;
+            --radius-xs: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .back-home {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xs);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .back-home:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Main Layout */
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 2.5rem 2rem;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Left Side */
+        .left-side {
+            flex: 1;
+            max-width: 560px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary-light);
+            border: 1px solid #BFDBFE;
+            border-radius: 50px;
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .badge-icon {
+            font-size: 0.9rem;
+        }
+
+        .left-heading {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .left-heading .highlight {
+            color: var(--primary);
+        }
+
+        .left-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 400px;
+        }
+
+        /* Illustration */
+        .illustration-wrap {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .illustration {
+            width: 100%;
+            max-width: 480px;
+            position: relative;
+        }
+
+        /* Floating Icons */
+        .float-icon {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background: var(--surface);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 10;
+        }
+
+        .float-icon.code {
+            top: 10%;
+            left: 5%;
+            color: #3B82F6;
+        }
+
+        .float-icon.book {
+            top: 5%;
+            right: 15%;
+            color: #8B5CF6;
+        }
+
+        .float-icon.video {
+            top: 35%;
+            right: 0;
+            color: #EF4444;
+        }
+
+        .float-icon.chat {
+            bottom: 25%;
+            right: 5%;
+            color: #10B981;
+        }
+
+        /* Feature Cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.2s;
+        }
+
+        .feature-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-icon.blue {
+            background: #EFF6FF;
+            color: #2563EB;
+        }
+
+        .feature-icon.purple {
+            background: #F3E8FF;
+            color: #7C3AED;
+        }
+
+        .feature-icon.green {
+            background: #ECFDF5;
+            color: #059669;
+        }
+
+        .feature-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: var(--text);
+        }
+
+        .feature-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Right Side - Login Card */
+        .right-side {
+            width: 440px;
+            flex-shrink: 0;
+        }
+
+        .login-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .login-logo-text {
+            text-align: left;
+        }
+
+        .login-logo-text .brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+        }
+
+        .login-logo-text .brand span {
+            color: var(--primary);
+        }
+
+        .login-logo-text .tagline {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .login-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-title .highlight {
+            color: var(--primary);
+        }
+
+        .login-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            color: var(--text-light);
+            font-size: 1rem;
+            z-index: 2;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.85rem 1rem 0.85rem 2.8rem;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-xs);
+            font-size: 0.9rem;
+            color: var(--text);
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.25rem;
+        }
+
+        .password-toggle:hover {
+            color: var(--text-muted);
+        }
+
+        /* Form Options */
+        .form-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            width: 100%;
+            padding: 0.9rem;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-xs);
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Google Button */
+        .btn-google {
+            width: 100%;
+            padding: 0.85rem;
+            background: var(--surface);
+            color: var(--text);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-xs);
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            transition: all 0.2s;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-google:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .google-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Sign Up Link */
+        .signup-link {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .signup-link a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .left-side {
+                max-width: 100%;
+                text-align: center;
+                align-items: center;
+            }
+
+            .left-subtitle {
+                max-width: 100%;
+            }
+
+            .illustration-wrap {
+                display: none;
+            }
+
+            .features {
+                display: none;
+            }
+
+            .right-side {
+                width: 100%;
+                max-width: 440px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .login-card {
+                padding: 1.5rem;
+            }
+
+            .left-heading {
+                font-size: 2rem;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">👥</div>
+            <div class="logo-text">Barter<span>Learn</span></div>
+        </a>
+        <a href="index.html" class="back-home">
+            <span>←</span>
+            <span>Back to Home</span>
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Left Side -->
+        <div class="left-side">
+            <div class="badge">
+                <span class="badge-icon">☰</span>
+                <span>Welcome Back!</span>
+            </div>
+
+            <div>
+                <h1 class="left-heading">Welcome <span class="highlight">Back!</span></h1>
+                <p class="left-subtitle">Log in to continue your learning journey and connect with amazing people.</p>
+            </div>
+
+            <!-- Illustration -->
+            <div class="illustration-wrap">
+                <div class="illustration">
+                    <!-- SVG Illustration of people learning -->
+                    <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+                        <!-- Background blob -->
+                        <ellipse cx="240" cy="200" rx="200" ry="120" fill="#DBEAFE" opacity="0.5"/>
+
+                        <!-- Person 1 (standing, pointing) -->
+                        <g transform="translate(180, 60)">
+                            <!-- Body -->
+                            <rect x="25" y="50" width="50" height="80" rx="25" fill="#3B82F6"/>
+                            <!-- Head -->
+                            <circle cx="50" cy="35" r="22" fill="#FDBA74"/>
+                            <!-- Hair -->
+                            <path d="M28 30 Q50 5 72 30 Q72 15 50 10 Q28 15 28 30" fill="#1E293B"/>
+                            <!-- Face -->
+                            <circle cx="42" cy="32" r="2.5" fill="#1E293B"/>
+                            <circle cx="58" cy="32" r="2.5" fill="#1E293B"/>
+                            <path d="M44 42 Q50 47 56 42" stroke="#1E293B" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <!-- Arm pointing up -->
+                            <rect x="65" y="55" width="35" height="12" rx="6" fill="#3B82F6" transform="rotate(-30 65 55)"/>
+                            <!-- Hand -->
+                            <circle cx="95" cy="38" r="8" fill="#FDBA74"/>
+                            <!-- Tablet -->
+                            <rect x="30" y="75" width="40" height="30" rx="4" fill="#1E293B"/>
+                            <rect x="33" y="78" width="34" height="24" rx="2" fill="#60A5FA"/>
+                        </g>
+
+                        <!-- Person 2 (sitting with laptop) -->
+                        <g transform="translate(60, 140)">
+                            <!-- Chair -->
+                            <rect x="10" y="50" width="60" height="8" rx="4" fill="#94A3B8"/>
+                            <rect x="15" y="58" width="8" height="40" rx="4" fill="#94A3B8"/>
+                            <rect x="57" y="58" width="8" height="40" rx="4" fill="#94A3B8"/>
+                            <!-- Body -->
+                            <rect x="20" y="20" width="45" height="45" rx="22" fill="#60A5FA"/>
+                            <!-- Head -->
+                            <circle cx="42" cy="12" r="18" fill="#FDBA74"/>
+                            <!-- Hair -->
+                            <ellipse cx="42" cy="5" rx="16" ry="10" fill="#1E293B"/>
+                            <!-- Face -->
+                            <circle cx="35" cy="10" r="2" fill="#1E293B"/>
+                            <circle cx="49" cy="10" r="2" fill="#1E293B"/>
+                            <path d="M37 18 Q42 22 47 18" stroke="#1E293B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <!-- Laptop -->
+                            <rect x="5" y="55" width="55" height="35" rx="4" fill="#CBD5E1"/>
+                            <rect x="8" y="58" width="49" height="28" rx="2" fill="#F8FAFC"/>
+                            <circle cx="32" cy="72" r="8" fill="#3B82F6" opacity="0.3"/>
+                            <!-- Arms -->
+                            <rect x="15" y="40" width="30" height="10" rx="5" fill="#60A5FA" transform="rotate(20 15 40)"/>
+                        </g>
+
+                        <!-- Person 3 (writing in notebook) -->
+                        <g transform="translate(300, 130)">
+                            <!-- Body -->
+                            <rect x="20" y="35" width="48" height="50" rx="24" fill="#2563EB"/>
+                            <!-- Head -->
+                            <circle cx="44" cy="22" r="20" fill="#FDBA74"/>
+                            <!-- Hair/Glasses -->
+                            <rect x="30" y="16" width="28" height="4" rx="2" fill="#1E293B"/>
+                            <circle cx="36" cy="20" r="6" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+                            <circle cx="52" cy="20" r="6" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+                            <line x1="42" y1="20" x2="46" y2="20" stroke="#1E293B" stroke-width="1.5"/>
+                            <!-- Face -->
+                            <path d="M38 30 Q44 34 50 30" stroke="#1E293B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <!-- Arm writing -->
+                            <rect x="55" y="45" width="30" height="10" rx="5" fill="#2563EB" transform="rotate(-15 55 45)"/>
+                            <!-- Hand holding pen -->
+                            <circle cx="82" cy="38" r="6" fill="#FDBA74"/>
+                            <!-- Pen -->
+                            <rect x="78" y="25" width="4" height="18" rx="2" fill="#1E293B" transform="rotate(-15 78 25)"/>
+                            <!-- Notebook -->
+                            <rect x="30" y="65" width="50" height="35" rx="4" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+                            <line x1="40" y1="75" x2="70" y2="75" stroke="#CBD5E1" stroke-width="1"/>
+                            <line x1="40" y1="82" x2="65" y2="82" stroke="#CBD5E1" stroke-width="1"/>
+                            <line x1="40" y1="89" x2="68" y2="89" stroke="#CBD5E1" stroke-width="1"/>
+                        </g>
+
+                        <!-- Plant -->
+                        <g transform="translate(140, 220)">
+                            <rect x="15" y="30" width="20" height="25" rx="4" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+                            <ellipse cx="18" cy="25" rx="6" ry="12" fill="#10B981"/>
+                            <ellipse cx="25" cy="22" rx="5" ry="10" fill="#34D399"/>
+                            <ellipse cx="32" cy="26" rx="4" ry="8" fill="#6EE7B7"/>
+                        </g>
+
+                        <!-- Coffee mug -->
+                        <g transform="translate(380, 210)">
+                            <rect x="10" y="15" width="24" height="28" rx="4" fill="#3B82F6"/>
+                            <rect x="8" y="12" width="28" height="5" rx="2" fill="#1E40AF"/>
+                            <path d="M34 22 Q42 22 42 29 Q42 36 34 36" stroke="#3B82F6" stroke-width="3" fill="none"/>
+                            <!-- Steam -->
+                            <path d="M16 5 Q18 0 16 -5" stroke="#CBD5E1" stroke-width="1.5" fill="none" opacity="0.6"/>
+                            <path d="M22 5 Q24 0 22 -5" stroke="#CBD5E1" stroke-width="1.5" fill="none" opacity="0.6"/>
+                        </g>
+
+                        <!-- Floating elements -->
+                        <circle cx="100" cy="80" r="6" fill="#BFDBFE" opacity="0.6"/>
+                        <circle cx="380" cy="100" r="4" fill="#DBEAFE" opacity="0.8"/>
+                        <circle cx="120" cy="250" r="5" fill="#DBEAFE" opacity="0.5"/>
+                        <circle cx="400" cy="180" r="7" fill="#BFDBFE" opacity="0.4"/>
+                    </svg>
+
+                    <!-- Floating Icons -->
+                    <div class="float-icon code">&lt;/&gt;</div>
+                    <div class="float-icon book">📖</div>
+                    <div class="float-icon video">▶️</div>
+                    <div class="float-icon chat">💬</div>
+                </div>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon blue">👥</div>
+                    <div class="feature-title">Learn any Skill</div>
+                    <div class="feature-desc">Learn from experts and grow your knowledge.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon purple">🎓</div>
+                    <div class="feature-title">Teach & Earn</div>
+                    <div class="feature-desc">Share your skills and earn time credits.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon green">🔄</div>
+                    <div class="feature-title">Skill Exchange</div>
+                    <div class="feature-desc">Exchange skills and grow together.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="right-side">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="login-logo">
+                        <div class="login-logo-icon">👥</div>
+                        <div class="login-logo-text">
+                            <div class="brand">Barter<span>Learn</span></div>
+                            <div class="tagline">Skill Exchange Platform</div>
+                        </div>
+                    </div>
+                    <h2 class="login-title">Log <span class="highlight">In</span></h2>
+                    <p class="login-subtitle">Welcome back! Please enter your details.</p>
+                </div>
+
+                <form id="loginForm" onsubmit="handleLogin(event)" autocomplete="off">
+                    <!-- Dummy hidden inputs to absorb browser autofill heuristics -->
+                    <input type="text" name="prevent_autofill_email" id="prevent_autofill_email" value="" style="display:none !important;" tabindex="-1" aria-hidden="true" autocomplete="off">
+                    <input type="password" name="prevent_autofill_password" id="prevent_autofill_password" value="" style="display:none !important;" tabindex="-1" aria-hidden="true" autocomplete="new-password">
+
+                    <div class="form-group">
+                        <div class="input-wrap">
+                            <span class="input-icon">✉️</span>
+                            <input type="email" class="form-input" id="emailInput" name="user_email_address" placeholder="Enter your email" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" onmousedown="this.removeAttribute('readonly');">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-wrap">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" class="form-input" id="passwordInput" name="user_password_field" placeholder="Enter your password" required autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly');" onmousedown="this.removeAttribute('readonly');">
+                            <button type="button" class="password-toggle" onclick="togglePassword()">👁️</button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" checked>
+                            <span>Remember Me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <span>Log In</span>
+                        <span>→</span>
+                    </button>
+                </form>
+
+                <div class="divider">OR</div>
+
+                <button class="btn-google" onclick="handleGoogleLogin()">
+                    <svg class="google-icon" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    <span>Continue with Google</span>
+                </button>
+
+                <div class="signup-link">
+                    Don't have an account? <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        © 2024 BarterLearn. All rights reserved.
+    </footer>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>

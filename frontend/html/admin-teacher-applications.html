@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - Admin Teacher Applications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/admin-teacher-applications.css">
+</head>
+<body>
+    <!-- SVG Gradients -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="gradientPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#8B5CF6"/>
+                <stop offset="100%" style="stop-color:#A855F7"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">👥</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Skill for Skill, Grow Together</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+            <a href="browse-people.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Browse People</span>
+            </a>
+            <a href="session-request.html" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+            </a>
+            <a href="my-sessions.html" class="nav-item">
+                <span class="nav-icon">📖</span>
+                <span>My Sessions</span>
+            </a>
+            <a href="credits.html" class="nav-item">
+                <span class="nav-icon">💰</span>
+                <span>Time Wallet</span>
+            </a>
+            <a href="admin-teacher-applications.html" class="nav-item active" id="adminSidebarNav" style="display:none;">
+                <span class="nav-icon">🎓</span>
+                <span>Admin Portal</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main" id="adminMainContent" style="display: block;">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Administrator Control</h2>
+                <h1>Teacher Applications 🎓</h1>
+                <p>Review, approve, or reject applicant requests to become verified teachers.</p>
+            </div>
+            <div class="top-actions">
+                <div class="user-profile">
+                    <div class="user-avatar" id="headerUserAvatar">AD</div>
+                    <div class="user-info">
+                        <div class="name" id="headerUserName">Admin</div>
+                        <div class="role" id="headerUserRole">Administrator</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Main Section Switcher -->
+        <div style="display:flex; gap:1rem; margin-bottom:1.5rem;">
+            <button id="tabBtnTeacherApps" class="session-tab-btn active" onclick="switchAdminTab('teacher-apps')" style="padding:0.75rem 1.4rem; font-size:0.95rem; border-radius:10px; border:none; cursor:pointer; font-weight:700;">
+                🎓 Teacher Applications
+            </button>
+            <button id="tabBtnPaymentReqs" class="session-tab-btn" onclick="switchAdminTab('payment-reqs')" style="padding:0.75rem 1.4rem; font-size:0.95rem; border-radius:10px; border:none; cursor:pointer; font-weight:700;">
+                💳 Session Payment Verifications
+            </button>
+        </div>
+
+        <!-- SECTION 1: TEACHER APPLICATIONS -->
+        <div id="adminSecTeacherApps">
+            <!-- Filter & Search Controls -->
+            <div class="admin-controls-card">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all" onclick="filterApplications('all')">
+                        All <span class="badge-count" id="countAll">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter="pending" onclick="filterApplications('pending')">
+                        Pending ⏳ <span class="badge-count yellow" id="countPending">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter="approved" onclick="filterApplications('approved')">
+                        Approved ✅ <span class="badge-count green" id="countApproved">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter="rejected" onclick="filterApplications('rejected')">
+                        Rejected ❌ <span class="badge-count red" id="countRejected">0</span>
+                    </button>
+                </div>
+
+                <div class="search-input-wrap">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="adminSearchInput" placeholder="Search applicant name, email, skills..." oninput="handleAdminSearch()">
+                </div>
+            </div>
+
+            <!-- Applications Grid / List -->
+            <div class="applications-container" id="applicationsContainer">
+                <div class="loading-spinner">
+                    <p>Loading teacher applications...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: SESSION PAYMENT VERIFICATIONS -->
+        <div id="adminSecPaymentReqs" style="display:none;">
+            <div class="section-card" style="background:var(--surface); padding:1.5rem; border-radius:16px; border:1px solid var(--border);">
+                <div class="section-header-row" style="margin-bottom:1.2rem;">
+                    <div>
+                        <h2>🛡️ Verify Paid Session Payments</h2>
+                        <p style="color:var(--text-light); font-size:0.85rem;">Review uploaded payment proof screenshots and approve or reject paid session bookings.</p>
+                    </div>
+                </div>
+
+                <div class="applications-container" id="paymentRequestsContainer">
+                    <div class="loading-spinner">
+                        <p>Loading session payment requests...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Access Denied View (shown to non-admin users) -->
+    <div class="access-denied-container" id="accessDeniedCard" style="display: none;">
+        <div class="access-denied-box">
+            <div class="access-denied-icon">🚫</div>
+            <h2>Access Denied</h2>
+            <p>You do not have administrative permissions to view this page. The Admin Portal is restricted to Administrator accounts only.</p>
+            <a href="dashboard.html" class="btn-return-dashboard">
+                <span>🏠 Return to Dashboard</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/admin-teacher-applications.js"></script>
+</body>
+</html>

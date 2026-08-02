@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - Reviews & Feedback</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/reviews.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">👥</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Skill for Skill, Grow Together</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+                        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+            <a href="browse-people.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Browse People</span>
+            </a>
+            <a href="session-request.html" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+            </a>
+            <a href="my-sessions.html" class="nav-item">
+                <span class="nav-icon">📖</span>
+                <span>My Sessions</span>
+            </a>
+            <a href="credits.html" class="nav-item">
+                <span class="nav-icon">💰</span>
+                <span>Time Wallet</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <span class="nav-icon">✉️</span>
+                <span>Messages</span>
+            </a>
+            <a href="reviews.html" class="nav-item active">
+                <span class="nav-icon">⭐</span>
+                <span>Reviews</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Peer Ratings</h2>
+                <h1>Reviews & Badges ⭐</h1>
+                <p>Track your teaching reputation, submit ratings, and manage unlocked badges.</p>
+            </div>
+            <div class="top-actions">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search reviews...">
+                </div>
+                <button class="icon-btn">
+                    🔔
+                </button>
+                <button class="icon-btn">
+                    💬
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar" id="headerUserAvatar">VT</div>
+                    <div class="user-info">
+                        <div class="name" id="headerUserName">Vanshika</div>
+                        <div class="role" id="headerUserRole">Learner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Grid Layout -->
+        <div class="reviews-layout-grid">
+            <!-- Left Side: Ratings Analytics & Submit Form -->
+            <div class="reviews-left-col">
+                <!-- Overall Rating Score Card -->
+                <div class="profile-card score-card">
+                    <h3 class="card-heading">⭐ Barter Rating</h3>
+                    <div class="overall-rating-area">
+                        <h2 class="rating-big" id="ratingBig">0.0</h2>
+                        <div class="rating-details">
+                            <div class="stars-gold" id="ratingStars">☆☆☆☆☆</div>
+                            <span class="total-count" id="totalReviewsCount">Based on 0 reviews</span>
+                        </div>
+                    </div>
+                    <!-- Ratings Breakdown -->
+                    <div class="ratings-breakdown">
+                        <div class="breakdown-row">
+                            <span>5 Stars</span>
+                            <div class="bar-bg"><div class="bar-fill" id="bar5Star" style="width: 0%;"></div></div>
+                            <span id="label5Star">0%</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>4 Stars</span>
+                            <div class="bar-bg"><div class="bar-fill" id="bar4Star" style="width: 0%;"></div></div>
+                            <span id="label4Star">0%</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>3 Stars</span>
+                            <div class="bar-bg"><div class="bar-fill" id="bar3Star" style="width: 0%;"></div></div>
+                            <span id="label3Star">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Review Form Card -->
+                <div class="profile-card write-review-card">
+                    <h3 class="card-heading">✍️ Submit Lesson Review</h3>
+                    <form id="reviewForm" onsubmit="submitReview(event)">
+                        <div class="form-group">
+                            <label class="form-label">Select Barter Partner</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">👤</span>
+                                <select class="form-input" id="partnerSelect" required>
+                                    <option value="" disabled selected>Choose partner...</option>
+                                </select>
+                                <span class="select-arrow">▼</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Review Star Rating</label>
+                            <div class="star-rating-select" id="starSelectArea">
+                                <span class="star-interactive" data-val="1">★</span>
+                                <span class="star-interactive" data-val="2">★</span>
+                                <span class="star-interactive" data-val="3">★</span>
+                                <span class="star-interactive" data-val="4">★</span>
+                                <span class="star-interactive" data-val="5">★</span>
+                            </div>
+                            <input type="hidden" id="ratingInput" value="5">
+                        </div>
+
+
+
+                        <button type="submit" class="btn-submit-review">Submit Feedback →</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Side: Reviews feed list -->
+            <div class="reviews-right-col">
+                <div class="profile-card feed-card">
+                    <h3 class="card-heading">💬 Feed of Peer Reviews</h3>
+                    <div class="reviews-feed-list" id="reviewsFeedList">
+                        <!-- Loaded dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/reviews.js"></script>
+</body>
+</html>

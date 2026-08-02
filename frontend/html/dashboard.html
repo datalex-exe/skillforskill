@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarterLearn - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <base target="_blank">
+</head>
+
+<body>
+    <!-- SVG Gradients Definition -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="gradientPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#A855F7" />
+                <stop offset="100%" style="stop-color:#EC4899" />
+            </linearGradient>
+            <linearGradient id="gradientWallet" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#F472B6" />
+                <stop offset="100%" style="stop-color:#A855F7" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <div class="logo-icon">👥</div>
+                <div class="logo-text">
+                    <h1>BarterLearn</h1>
+                    <span>Skill for Skill, Grow Together</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+            <a href="browse-people.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Browse People</span>
+            </a>
+            <a href="session-request.html" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span>Session Requests</span>
+            </a>
+            <a href="my-sessions.html" class="nav-item">
+                <span class="nav-icon">📖</span>
+                <span>My Sessions</span>
+            </a>
+            <a href="credits.html" class="nav-item">
+                <span class="nav-icon">💰</span>
+                <span>Time Wallet</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <span class="nav-icon">✉️</span>
+                <span>Messages</span>
+            </a>
+            <a href="reviews.html" class="nav-item">
+                <span class="nav-icon">⭐</span>
+                <span>Reviews</span>
+            </a>
+            <a href="premium.html" class="nav-item">
+                <span class="nav-icon">💎</span>
+                <span>Upgrade Premium</span>
+            </a>
+            <a href="admin-teacher-applications.html" class="nav-item" id="adminSidebarNav" style="display:none;">
+                <span class="nav-icon">🎓</span>
+                <span>Admin Portal</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-illustration">
+            <svg viewBox="0 0 180 140" style="width:100%;max-width:180px">
+                <!-- Background glow -->
+                <circle cx="90" cy="70" r="60" fill="url(#grad1)" opacity="0.3" />
+                <defs>
+                    <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0B0F19;stop-opacity:0" />
+                    </radialGradient>
+                </defs>
+                <!-- Person 1 (left, high five) -->
+                <g transform="translate(30, 40)">
+                    <rect x="15" y="25" width="28" height="45" rx="14" fill="#F59E0B" />
+                    <circle cx="29" cy="15" r="12" fill="#FDBA74" />
+                    <path d="M17 10 Q29 0 41 10" fill="#1E293B" />
+                    <circle cx="25" cy="14" r="1.5" fill="#1E293B" />
+                    <circle cx="33" cy="14" r="1.5" fill="#1E293B" />
+                    <path d="M26 20 Q29 23 32 20" stroke="#1E293B" stroke-width="1" fill="none" />
+                    <!-- Arm raised -->
+                    <rect x="38" y="20" width="20" height="8" rx="4" fill="#F59E0B" transform="rotate(-30 38 20)" />
+                    <circle cx="56" cy="8" r="6" fill="#FDBA74" />
+                </g>
+                <!-- Person 2 (right, high five) -->
+                <g transform="translate(100, 40)">
+                    <rect x="15" y="25" width="28" height="45" rx="14" fill="#3B82F6" />
+                    <circle cx="29" cy="15" r="12" fill="#FDBA74" />
+                    <path d="M17 10 Q29 0 41 10" fill="#1E293B" />
+                    <circle cx="25" cy="14" r="1.5" fill="#1E293B" />
+                    <circle cx="33" cy="14" r="1.5" fill="#1E293B" />
+                    <path d="M26 20 Q29 23 32 20" stroke="#1E293B" stroke-width="1" fill="none" />
+                    <!-- Arm raised -->
+                    <rect x="0" y="20" width="20" height="8" rx="4" fill="#3B82F6" transform="rotate(30 20 20)" />
+                    <circle cx="2" cy="8" r="6" fill="#FDBA74" />
+                </g>
+                <!-- Stars/sparkles -->
+                <text x="20" y="30" font-size="12" fill="#F59E0B">✨</text>
+                <text x="140" y="35" font-size="10" fill="#A855F7">✨</text>
+                <text x="150" y="80" font-size="8" fill="#EC4899">✨</text>
+                <text x="10" y="90" font-size="10" fill="#3B82F6">✨</text>
+            </svg>
+        </div>
+
+        <div class="sidebar-cta-text">
+            <h3>Exchange Skills</h3>
+            <p>Earn Time Credits</p>
+        </div>
+
+        <a href="browse-people.html" class="btn-explore">
+            <span>Explore Now</span>
+            <span>→</span>
+        </a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Welcome back,</h2>
+                <h1 id="greetingName">Vanshika Tiwari 👋</h1>
+                <p>Let's learn, teach and grow together today!</p>
+            </div>
+            <div class="top-actions">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search skills, people...">
+                </div>
+                <a href="premium.html" class="btn-premium-header" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem; background:linear-gradient(135deg,#f59e0b,#d97706); color:#000; font-weight:800; font-size:0.82rem; padding:0.45rem 0.9rem; border-radius:20px; box-shadow:0 4px 12px rgba(245,158,11,0.3); transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+                    <span>💎</span>
+                    <span>Premium</span>
+                </a>
+                <button class="icon-btn">
+                    🔔
+                </button>
+                <button class="icon-btn">
+                    💬
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar" id="headerUserAvatar">VT</div>
+                    <div class="user-info">
+                        <div style="display:flex; align-items:center; gap:0.4rem;">
+                            <div class="name" id="headerUserName">Vanshika</div>
+                            <span class="premium-badge-tag" id="headerPremiumBadge" style="display:none; background:linear-gradient(135deg, #f59e0b, #d97706); color:#000; font-weight:800; font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:12px; letter-spacing:0.04em;">💎 PRO</span>
+                        </div>
+                        <div class="role" id="headerUserRole">Learner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Main Column -->
+            <div class="dashboard-main">
+                <!-- Hero Banner -->
+                <div class="hero-banner">
+                    <div class="hero-content">
+                        <h2>Keep Learning,<br>Keep Growing! 🚀</h2>
+                        <p>Every skill you learn today builds your better tomorrow.</p>
+                        <a href="browse-people.html" class="btn-white">Explore Skills →</a>
+                    </div>
+                    <div class="hero-illustration">
+                        <svg viewBox="0 0 200 160" style="width:100%;height:100%">
+                            <!-- Girl at laptop -->
+                            <g transform="translate(60, 20)">
+                                <!-- Body -->
+                                <rect x="25" y="50" width="50" height="55" rx="25" fill="#A855F7" />
+                                <!-- Head -->
+                                <circle cx="50" cy="35" r="22" fill="#FDBA74" />
+                                <!-- Hair -->
+                                <path d="M25 30 Q50 5 75 30 Q78 20 72 12 Q50 0 28 12 Q22 20 25 30" fill="#1E1B4B" />
+                                <ellipse cx="72" cy="40" rx="8" ry="15" fill="#1E1B4B" />
+                                <!-- Face -->
+                                <circle cx="42" cy="32" r="2.5" fill="#1E293B" />
+                                <circle cx="58" cy="32" r="2.5" fill="#1E293B" />
+                                <path d="M44 42 Q50 47 56 42" stroke="#1E293B" stroke-width="2" fill="none"
+                                    stroke-linecap="round" />
+                                <!-- Laptop -->
+                                <rect x="15" y="80" width="70" height="45" rx="6" fill="#60A5FA" />
+                                <rect x="18" y="83" width="64" height="36" rx="4" fill="#1E1B4B" />
+                                <circle cx="50" cy="101" r="10" fill="#3B82F6" opacity="0.5" />
+                                <!-- Arms -->
+                                <rect x="20" y="65" width="25" height="10" rx="5" fill="#A855F7"
+                                    transform="rotate(15 20 65)" />
+                                <rect x="55" y="65" width="25" height="10" rx="5" fill="#A855F7"
+                                    transform="rotate(-15 80 65)" />
+                            </g>
+                            <!-- Floating icons -->
+                            <circle cx="30" cy="30" r="14" fill="#3B82F6" opacity="0.9" />
+                            <text x="23" y="35" font-size="12" fill="#fff">🎓</text>
+                            <circle cx="160" cy="40" r="14" fill="#F59E0B" opacity="0.9" />
+                            <text x="153" y="45" font-size="12" fill="#fff">&lt;/&gt;</text>
+                            <circle cx="170" cy="100" r="12" fill="#10B981" opacity="0.9" />
+                            <text x="164" y="105" font-size="10" fill="#fff">💡</text>
+                            <circle cx="20" cy="110" r="10" fill="#EC4899" opacity="0.9" />
+                            <text x="15" y="114" font-size="8" fill="#fff">⭐</text>
+                            <!-- Books -->
+                            <rect x="45" y="125" width="25" height="6" rx="2" fill="#F59E0B" />
+                            <rect x="48" y="118" width="22" height="6" rx="2" fill="#EC4899" />
+                            <!-- Coffee -->
+                            <rect x="130" y="120" width="16" height="20" rx="3" fill="#F97316" />
+                            <rect x="128" y="117" width="20" height="4" rx="2" fill="#1E1B4B" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon purple">📚</div>
+                            <span class="stat-label">Skills I Teach</span>
+                        </div>
+                        <div class="stat-value" id="statSkillsTeach">0</div>
+                        <div class="stat-footer">
+                            <a href="profile.html#skills-teach" class="stat-link">View all →</a>
+                            <svg class="stat-sparkline" viewBox="0 0 60 24">
+                                <path d="M0 18 Q10 15 15 12 T30 10 T45 14 T60 6" fill="none" stroke="#A855F7"
+                                    stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon green">🎯</div>
+                            <span class="stat-label">Skills I Want to Learn</span>
+                        </div>
+                        <div class="stat-value" id="statSkillsLearn">0</div>
+                        <div class="stat-footer">
+                            <a href="profile.html#skills-learn" class="stat-link">View all →</a>
+                            <svg class="stat-sparkline" viewBox="0 0 60 24">
+                                <path d="M0 16 Q10 14 20 10 T40 12 T60 4" fill="none" stroke="#10B981"
+                                    stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon orange">✅</div>
+                            <span class="stat-label">Completed Sessions</span>
+                        </div>
+                        <div class="stat-value" id="statCompletedSessions">0</div>
+                        <div class="stat-footer">
+                            <a href="my-sessions.html?tab=completed" class="stat-link">View all →</a>
+                            <svg class="stat-sparkline" viewBox="0 0 60 24">
+                                <path d="M0 20 Q15 18 25 14 T45 10 T60 4" fill="none" stroke="#F97316"
+                                    stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon yellow">⭐</div>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                        <div class="stat-value" id="statRating">0.0</div>
+                        <div class="stat-footer">
+                            <a href="reviews.html" class="stat-link">View all →</a>
+                            <svg class="stat-sparkline" viewBox="0 0 60 24">
+                                <path d="M0 12 Q10 10 20 8 T40 6 T60 4" fill="none" stroke="#F59E0B" stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress & Activity -->
+                <div class="progress-row">
+                    <div class="dark-card">
+                        <div class="card-header">
+                            <h3>Your Learning Progress</h3>
+                            <button class="dropdown">This Month ▾</button>
+                        </div>
+                        <div class="progress-circle-wrap">
+                            <div class="progress-circle">
+                                <svg viewBox="0 0 100 100" width="100" height="100">
+                                    <circle class="progress-circle-bg" cx="50" cy="50" r="40" />
+                                    <circle class="progress-circle-bar" cx="50" cy="50" r="40" />
+                                </svg>
+                                <div class="progress-text">
+                                    <span class="percent">0%</span>
+                                    <span class="label">Overall Progress</span>
+                                </div>
+                            </div>
+                            <div class="skill-list" id="progressSkillList">
+                                <div style="font-size:0.9rem; color:var(--text-light, #94A3B8); font-style:italic; padding:1.5rem 0; text-align:center;">No learning activity yet.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dark-card">
+                        <div class="card-header">
+                            <h3>Recent Activity</h3>
+                            <a href="#" class="dropdown">See All →</a>
+                        </div>
+                        <div class="activity-list" id="recentActivityList">
+                            <div class="activity-item">
+                                <div class="activity-icon green">✓</div>
+                                <div class="activity-content">
+                                    <div class="activity-text">Rahul Sharma accepted your session request</div>
+                                    <div class="activity-time">2m ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon yellow">🏆</div>
+                                <div class="activity-content">
+                                    <div class="activity-text">You earned 15 Time Credits from a completed session</div>
+                                    <div class="activity-time">1h ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon purple">💬</div>
+                                <div class="activity-content">
+                                    <div class="activity-text">New message from Anjali Verma<br>Hey! Can we schedule our
+                                        session for tomorrow?</div>
+                                    <div class="activity-time">3h ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon pink">⭐</div>
+                                <div class="activity-content">
+                                    <div class="activity-text">You received a 5 star review from Rohan Mehta</div>
+                                    <div class="activity-time">5h ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- People You May Want to Connect -->
+                <div class="people-section">
+                    <div class="section-header-row">
+                        <h3>People You May Want to Connect</h3>
+                        <a href="#" class="stat-link">See All →</a>
+                    </div>
+                    <div class="people-carousel">
+                        <button class="people-nav prev">‹</button>
+                        <div class="person-card">
+                            <div class="person-avatar">AV</div>
+                            <div class="person-name">Anjali Verma</div>
+                            <div class="person-role">Graphic Designer</div>
+                            <div class="person-rating">
+                                <span class="star">⭐</span>
+                                <span>4.9 (38)</span>
+                            </div>
+                            <button class="btn-connect pink">Connect</button>
+                        </div>
+                        <div class="person-card">
+                            <div class="person-avatar">RM</div>
+                            <div class="person-name">Rohan Mehta</div>
+                            <div class="person-role">Python Developer</div>
+                            <div class="person-rating">
+                                <span class="star">⭐</span>
+                                <span>4.8 (52)</span>
+                            </div>
+                            <button class="btn-connect green">Connect</button>
+                        </div>
+                        <div class="person-card">
+                            <div class="person-avatar">PS</div>
+                            <div class="person-name">Priya Singh</div>
+                            <div class="person-role">Digital Marketer</div>
+                            <div class="person-rating">
+                                <span class="star">⭐</span>
+                                <span>4.7 (26)</span>
+                            </div>
+                            <button class="btn-connect orange">Connect</button>
+                        </div>
+                        <div class="person-card">
+                            <div class="person-avatar">AP</div>
+                            <div class="person-name">Arjun Patel</div>
+                            <div class="person-role">UI/UX Designer</div>
+                            <div class="person-rating">
+                                <span class="star">⭐</span>
+                                <span>4.9 (41)</span>
+                            </div>
+                            <button class="btn-connect blue">Connect</button>
+                        </div>
+                        <button class="people-nav next">›</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Column -->
+            <div class="dashboard-side">
+                <!-- Time Wallet -->
+                <div class="time-wallet">
+                    <div class="wallet-header">
+                        <span>💰</span>
+                        <span>My Time Wallet</span>
+                    </div>
+                    <div class="wallet-amount" id="walletAmount">0</div>
+                    <div class="wallet-label">Time Credits</div>
+                    <div class="wallet-chart">
+                        <svg viewBox="0 0 100 100" width="100" height="100">
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)"
+                                stroke-width="8" />
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="url(#gradientWallet)" stroke-width="8"
+                                stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="251" id="walletChartCircle"
+                                transform="rotate(-90 50 50)" />
+                            <text x="50" y="48" text-anchor="middle" fill="#fff" font-size="14"
+                                font-weight="700">⏱</text>
+                        </svg>
+                    </div>
+                    <div class="wallet-stats">
+                        <div class="wallet-stat earned">
+                            <span>+</span>
+                            <span>Earned</span>
+                            <span style="font-weight:700" id="walletEarned">0</span>
+                        </div>
+                        <div class="wallet-stat spent">
+                            <span>−</span>
+                            <span>Spent</span>
+                            <span style="font-weight:700" id="walletSpent">0</span>
+                        </div>
+                    </div>
+                    <a href="credits.html" class="wallet-link">
+                        <span>View Transactions</span>
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <!-- Calendar -->
+                <div class="calendar-card">
+                    <div class="calendar-header">
+                        <h3>Calendar</h3>
+                        <a href="#" class="stat-link">View Full Calendar →</a>
+                    </div>
+                    <div class="calendar-nav">
+                        <button id="calPrevBtn" type="button">‹</button>
+                        <span id="calMonthYear"></span>
+                        <button id="calNextBtn" type="button">›</button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid">
+                        <div class="calendar-day-header">Mon</div>
+                        <div class="calendar-day-header">Tue</div>
+                        <div class="calendar-day-header">Wed</div>
+                        <div class="calendar-day-header">Thu</div>
+                        <div class="calendar-day-header">Fri</div>
+                        <div class="calendar-day-header">Sat</div>
+                        <div class="calendar-day-header">Sun</div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Session -->
+                <div class="session-card">
+                    <div class="session-header">
+                        <h3>Upcoming Session</h3>
+                        <a href="#" class="session-view-all">View All →</a>
+                    </div>
+                    <div class="session-content" id="upcomingSessionContent">
+                        <div class="session-avatar">RS</div>
+                        <div class="session-info">
+                            <div class="session-title">Web Design Basics</div>
+                            <div class="session-teacher">with Rahul Sharma</div>
+                            <div class="session-time">
+                                <span>📅 16 May 2025</span>
+                                <span>⏱ 04:00 PM</span>
+                            </div>
+                        </div>
+                        <button class="btn-join">
+                            <span>▶</span>
+                            <span>Join Session</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Top Skill Contributors -->
+                <div class="contributors-card">
+                    <div class="contributors-header">
+                        <h3>Top Skill Contributors</h3>
+                        <button class="dropdown">This Month ▾</button>
+                    </div>
+                    <div class="contributors-list" id="contributorsList">
+                        <div class="contributor-item">
+                            <div class="contributor-rank gold">1</div>
+                            <div class="contributor-avatar">RS</div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Rahul Sharma</div>
+                                <div class="contributor-skill">UI/UX Design</div>
+                            </div>
+                            <div class="contributor-points">
+                                <span>250</span>
+                                <span class="trophy">🏆</span>
+                            </div>
+                        </div>
+                        <div class="contributor-item">
+                            <div class="contributor-rank silver">2</div>
+                            <div class="contributor-avatar">PS</div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Priya Singh</div>
+                                <div class="contributor-skill">Digital Marketing</div>
+                            </div>
+                            <div class="contributor-points">
+                                <span>220</span>
+                                <span class="trophy">🏆</span>
+                            </div>
+                        </div>
+                        <div class="contributor-item">
+                            <div class="contributor-rank bronze">3</div>
+                            <div class="contributor-avatar">AP</div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Arjun Patel</div>
+                                <div class="contributor-skill">Web Development</div>
+                            </div>
+                            <div class="contributor-points">
+                                <span>200</span>
+                                <span class="trophy">🏆</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trophy-img">🏆</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/navbar.js"></script>
+    <script src="../js/dashboard.js?v=1.1"></script>
+</body>
+
+</html>
